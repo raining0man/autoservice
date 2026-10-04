@@ -11,6 +11,18 @@
         "img/works/work-1-1.jpg",
         "img/works/work-1-2.jpg"
       ]
+    },
+    {
+      "id": 2,
+      "category": "body",
+      "title": "Восстановление геометрии и покраска Kia",
+      "car": "Kia",
+      "date": "Октябрь 2026",
+      "description": "тест",
+      "images": [
+        "img/works/work-2-1.jpg",
+        "img/works/work-2-2.jpg"
+      ]
     }
   ]
 }
