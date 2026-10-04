@@ -35,7 +35,7 @@
     <div class="hero-bg"></div>
     <div class="container hero-content">
       <h1>Кузовной ремонт и <span>восстановление геометрии</span></h1>
-      <p>Стапель, покраска, антикоррозийная обработка и подбор запчастей. Работаем с 2009 года, гарантия на все работы — 12 месяцев.</p>
+      <p>Стапель, покраска, антикоррозийная обработка и помощь в подборе запчастей. Гарантия на все работы — 12 месяцев.</p>
       <div class="hero-buttons">
         <a href="contacts.html" class="btn btn-primary">Записаться на ремонт</a>
         <a href="services.html" class="btn btn-outline">Наши услуги</a>
@@ -57,43 +57,21 @@
     <div class="container">
       <h2 class="section-title">Популярные услуги</h2>
       <p class="section-sub">Полный цикл кузовных работ для вашего автомобиля</p>
-      <div class="grid grid-services">
-        <div class="service-card">
-          <div class="img-placeholder small">🔨</div>
-          <h3>Кузовной ремонт</h3>
-          <p>Переварка порогов, арок, стаканов. Ремонт рамных авто и замена элементов.</p>
-          <div class="service-footer"><span class="price">по запросу</span><a href="services.html" class="btn btn-small">Подробнее</a></div>
-        </div>
-        <div class="service-card">
-          <div class="img-placeholder small">📐</div>
-          <h3>Восстановление геометрии</h3>
-          <p>Точное восстановление геометрии кузова на профессиональном стапеле.</p>
-          <div class="service-footer"><span class="price">по запросу</span><a href="services.html" class="btn btn-small">Подробнее</a></div>
-        </div>
-        <div class="service-card">
-          <div class="img-placeholder small">🎨</div>
-          <h3>Покраска авто</h3>
-          <p>Покраска элемента, локальная покраска и покраска целиком.</p>
-          <div class="service-footer"><span class="price">по запросу</span><a href="services.html" class="btn btn-small">Подробнее</a></div>
-        </div>
-        <div class="service-card">
-          <div class="img-placeholder small">🛡️</div>
-          <h3>Антикоррозийная обработка</h3>
-          <p>Обработка днища, скрытых полостей, арок и порогов, антигравий.</p>
-          <div class="service-footer"><span class="price">по запросу</span><a href="services.html" class="btn btn-small">Подробнее</a></div>
-        </div>
-        <div class="service-card">
-          <div class="img-placeholder small">🔧</div>
-          <h3>Удаление вмятин</h3>
-          <p>Ремонт вмятин без покраски и с последующей покраской элемента.</p>
-          <div class="service-footer"><span class="price">по запросу</span><a href="services.html" class="btn btn-small">Подробнее</a></div>
-        </div>
-        <div class="service-card">
-          <div class="img-placeholder small">🔍</div>
-          <h3>Подбор запчастей</h3>
-          <p>Подберём оригинал или качественный аналог под вашу марку и VIN.</p>
-          <div class="service-footer"><span class="price">по запросу</span><a href="parts.html" class="btn btn-small">Подробнее</a></div>
-        </div>
+      <div class="grid grid-services" id="servicesGrid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка услуг…</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <div class="container">
+      <h2 class="section-title">Поможем подобрать запчасти</h2>
+      <p class="section-sub">Не продаём напрямую — консультируем и помогаем найти нужные детали под вашу марку авто</p>
+      <div class="grid grid-products" id="productsGrid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка…</p>
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="parts.html" class="btn btn-outline">Все позиции</a>
       </div>
     </div>
   </section>
@@ -229,19 +207,21 @@
   <div class="container footer-grid">
     <div>
       <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
-      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+      <p class="footer-text" data-contact="footerText">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
     </div>
     <div>
       <h4>Контакты</h4>
-      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
-      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
+      <p>📞 <a href="tel:+79043331024" data-contact="phoneLink">+7 (904) 333-10-24</a></p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru" data-contact="emailLink">auto98geometry@yandex.ru</a></p>
+      <p>📍 <span data-contact="address">Сабировская ул., 41В, Санкт-Петербург</span></p>
     </div>
     <div>
       <h4>Режим работы</h4>
-      <p>Пн–Пт: 9:00 – 19:00</p>
-      <p>Сб: 10:00 – 16:00</p>
-      <p>Вс: выходной</p>
+      <div data-contact="workHours">
+        <p>Пн–Пт: 9:00 – 19:00</p>
+        <p>Сб: 10:00 – 16:00</p>
+        <p>Вс: выходной</p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -251,7 +231,7 @@
 
 <script src="js/script.js"></script>
 <script>
-// Загрузка работ из data/works.json (показываем последние 6)
+// Загрузка работ
 (function initHomeWorks() {
   fetch('data/works.json?v=' + Date.now())
     .then(r => r.json())
@@ -277,8 +257,7 @@
       }).join('');
     })
     .catch(() => {
-      const grid = document.getElementById('worksGrid');
-      if (grid) grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить работы.</p>';
+      document.getElementById('worksGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>';
     });
   function escapeHtml(s) {
     return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -286,7 +265,88 @@
   }
 })();
 
-// Показ секции политики при переходе на #privacy
+// Загрузка услуг (первые 6 позиций)
+(function initHomeServices() {
+  fetch('data/services.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('servicesGrid');
+      const services = data.items || [];
+      if (!services.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Услуг пока нет.</p>';
+        return;
+      }
+
+      // Собираем все пункты всех услуг в один список, показываем первые 6
+      const flat = [];
+      services.forEach(s => {
+        (s.listItems || []).forEach(item => {
+          flat.push({
+            icon: s.icon || '🔧',
+            title: item,
+            category: s.title
+          });
+        });
+      });
+
+      grid.innerHTML = flat.slice(0, 6).map(x => `
+        <div class="service-card">
+          <div class="img-placeholder small">${escapeHtml(x.icon)}</div>
+          <h3>${escapeHtml(x.title)}</h3>
+          <p>${escapeHtml(x.category)}</p>
+          <div class="service-footer" style="justify-content:flex-end;">
+            <a href="services.html" class="btn btn-small">Подробнее</a>
+          </div>
+        </div>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('servicesGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>';
+    });
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+
+// Загрузка товаров (первые 6)
+(function initHomeProducts() {
+  fetch('data/products.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('productsGrid');
+      const items = (data.items || []).slice(0, 6);
+      if (!items.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Товаров пока нет.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(p => {
+        const img = p.image
+          ? `<img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;">`
+          : `<div class="img-placeholder">${escapeHtml(p.icon || '📦')}</div>`;
+        return `
+          <div class="product-card">
+            ${img}
+            <div class="product-body">
+              <h3>${escapeHtml(p.title)}</h3>
+              <p class="product-desc">${escapeHtml(p.description)}</p>
+              <div class="product-footer" style="justify-content:flex-end;">
+                <a href="contacts.html" class="btn btn-small">Оставить заявку</a>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+    })
+    .catch(() => {
+      document.getElementById('productsGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>';
+    });
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+
+// Политика
 (function initPrivacy() {
   function showPrivacyIfHash() {
     const section = document.getElementById('privacy');
@@ -304,7 +364,8 @@
       });
     }
   }
-  window.addEventListener('hashchange', showPrivacyIfHash);
+  window.addEventListener('hashchange', showPrivacyIfReady);
+  function showPrivacyIfReady() { showPrivacyIfHash(); }
   showPrivacyIfHash();
 })();
 </script>
