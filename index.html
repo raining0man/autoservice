@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Блог — АвтоМастер</title>
+  <title>АвтоМастер — ремонт, запчасти, знания</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,12 +15,12 @@
   <nav class="nav container">
     <a href="index.html" class="logo">🔧 АВТО<span>МАСТЕР</span></a>
     <ul class="nav-menu" id="navMenu">
-      <li><a href="index.html" class="nav-link">Главная</a></li>
-      <li><a href="index.html#services" class="nav-link">Услуги</a></li>
-      <li><a href="index.html#products" class="nav-link">Запчасти</a></li>
-      <li><a href="blog.html" class="nav-link active">Блог</a></li>
-      <li><a href="index.html#about" class="nav-link">О сервисе</a></li>
-      <li><a href="index.html#booking" class="nav-link">Контакты</a></li>
+      <li><a href="index.html" class="nav-link active">Главная</a></li>
+      <li><a href="#services" class="nav-link">Услуги</a></li>
+      <li><a href="#products" class="nav-link">Запчасти</a></li>
+      <li><a href="blog.html" class="nav-link">Блог</a></li>
+      <li><a href="#about" class="nav-link">О сервисе</a></li>
+      <li><a href="#booking" class="nav-link">Контакты</a></li>
     </ul>
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
@@ -34,132 +34,207 @@
 </header>
 
 <main>
-  <section class="page-hero">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <h1>Профессиональный ремонт авто — <span>быстро и честно</span></h1>
+      <p>Диагностика, ремонт, ТО и продажа запчастей. 15 лет опыта, гарантия на все работы.</p>
+      <div class="hero-buttons">
+        <a href="#booking" class="btn btn-primary">Записаться на ремонт</a>
+        <a href="#products" class="btn btn-outline">Купить запчасти</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="works">
     <div class="container">
-      <h1>Блог АвтоМастер</h1>
-      <p>Наши работы и полезные советы по уходу за автомобилем</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container container-narrow">
-
       <h2 class="section-title">Наши работы</h2>
-      <p class="section-sub">Подробные отчёты о выполненных ремонтах</p>
-
-      <!-- Работа 1 -->
-      <article class="work-post" id="work-1">
-        <div class="img-placeholder large">🛠️</div>
-        <div class="work-post-body">
-          <span class="work-date">Март 2026</span>
-          <h2>Капитальный ремонт двигателя BMW 3 Series</h2>
-          <p>Клиент обратился с жалобой на повышенный расход масла и сизый дым из выхлопной трубы. После диагностики выявили износ маслосъёмных колпачков и залегание поршневых колец.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Полная разборка двигателя</li>
-            <li>Расточка блока цилиндров</li>
-            <li>Замена поршневой группы и коленвала</li>
-            <li>Замена всех прокладок и сальников</li>
-            <li>Сборка и обкатка</li>
-          </ul>
-          <p><strong>Срок:</strong> 7 рабочих дней. <strong>Стоимость:</strong> 185 000 ₽. Гарантия — 1 год.</p>
-        </div>
-      </article>
-
-      <!-- Работа 2 -->
-      <article class="work-post" id="work-2">
-        <div class="img-placeholder large">⚙️</div>
-        <div class="work-post-body">
-          <span class="work-date">Февраль 2026</span>
-          <h2>Замена подвески Toyota Camry</h2>
-          <p>Стук в передней части при проезде неровностей и увод авто в сторону. Диагностика показала износ амортизаторов, шаровых опор и сайлентблоков.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Замена передних и задних амортизаторов</li>
-            <li>Замена шаровых опор и рулевых наконечников</li>
-            <li>Замена сайлентблоков рычагов</li>
-            <li>Развал-схождение</li>
-          </ul>
-          <p><strong>Срок:</strong> 1 день. <strong>Стоимость:</strong> 42 000 ₽.</p>
-        </div>
-      </article>
-
-      <!-- Работа 3 -->
-      <article class="work-post" id="work-3">
-        <div class="img-placeholder large">🛑</div>
-        <div class="work-post-body">
-          <span class="work-date">Февраль 2026</span>
-          <h2>Ремонт тормозной системы Kia Rio</h2>
-          <p>Скрип при торможении и вибрация на педали. Износ передних тормозных дисков и колодок.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Замена передних тормозных дисков и колодок</li>
-            <li>Замена тормозной жидкости</li>
-            <li>Прокачка тормозной системы</li>
-            <li>Проверка суппортов и направляющих</li>
-          </ul>
-          <p><strong>Срок:</strong> 3 часа. <strong>Стоимость:</strong> 14 500 ₽.</p>
-        </div>
-      </article>
-
-      <!-- Работа 4 -->
-      <article class="work-post" id="work-4">
-        <div class="img-placeholder large">❄️</div>
-        <div class="work-post-body">
-          <span class="work-date">Январь 2026</span>
-          <h2>Ремонт кондиционера VW Tiguan</h2>
-          <p>Кондиционер не холодил, из дефлекторов шёл тёплый воздух. Утечка фреона через уплотнительные кольца.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Диагностика системы под давлением</li>
-            <li>Замена уплотнительных колец</li>
-            <li>Замена осушителя</li>
-            <li>Вакуумирование и заправка фреоном R134a</li>
-            <li>Антибактериальная чистка</li>
-          </ul>
-          <p><strong>Срок:</strong> 4 часа. <strong>Стоимость:</strong> 12 800 ₽.</p>
-        </div>
-      </article>
-
-      <!-- Работа 5 -->
-      <article class="work-post" id="work-5">
-        <div class="img-placeholder large">⚡</div>
-        <div class="work-post-body">
-          <span class="work-date">Январь 2026</span>
-          <h2>Диагностика электрики Mercedes C-Class</h2>
-          <p>Периодически не запускался двигатель, на панели загорались случайные ошибки. Поиск короткого замыкания в проводке.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Компьютерная диагностика всех блоков</li>
-            <li>Прозвонка жгутов проводки</li>
-            <li>Замена повреждённого участка проводки</li>
-            <li>Перепрошивка блока управления</li>
-          </ul>
-          <p><strong>Срок:</strong> 2 дня. <strong>Стоимость:</strong> 28 000 ₽.</p>
-        </div>
-      </article>
-
-      <!-- Работа 6 -->
-      <article class="work-post" id="work-6">
-        <div class="img-placeholder large">🎨</div>
-        <div class="work-post-body">
-          <span class="work-date">Декабрь 2025</span>
-          <h2>Кузовной ремонт и покраска Lada Vesta</h2>
-          <p>После ДТП повреждены переднее крыло, бампер и капот. Требовалась рихтовка и полная покраска деталей.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Разборка и дефектовка</li>
-            <li>Рихтовка крыла и капота</li>
-            <li>Замена бампера</li>
-            <li>Шпаклёвка, грунтовка, покраска</li>
-            <li>Полировка и сборка</li>
-          </ul>
-          <p><strong>Срок:</strong> 5 дней. <strong>Стоимость:</strong> 68 000 ₽.</p>
-        </div>
-      </article>
-
+      <p class="section-sub">Примеры выполненных ремонтов — кликните, чтобы прочитать подробнее</p>
+      <div class="grid grid-works">
+        <a href="blog.html#work-1" class="work-card">
+          <div class="img-placeholder">🛠️</div>
+          <div class="work-caption"><h3>Капитальный ремонт двигателя</h3><span>BMW 3 Series • март 2026</span></div>
+        </a>
+        <a href="blog.html#work-2" class="work-card">
+          <div class="img-placeholder">⚙️</div>
+          <div class="work-caption"><h3>Замена подвески</h3><span>Toyota Camry • февраль 2026</span></div>
+        </a>
+        <a href="blog.html#work-3" class="work-card">
+          <div class="img-placeholder">🛑</div>
+          <div class="work-caption"><h3>Ремонт тормозной системы</h3><span>Kia Rio • февраль 2026</span></div>
+        </a>
+        <a href="blog.html#work-4" class="work-card">
+          <div class="img-placeholder">❄️</div>
+          <div class="work-caption"><h3>Ремонт кондиционера</h3><span>VW Tiguan • январь 2026</span></div>
+        </a>
+        <a href="blog.html#work-5" class="work-card">
+          <div class="img-placeholder">⚡</div>
+          <div class="work-caption"><h3>Диагностика электрики</h3><span>Mercedes C-Class • январь 2026</span></div>
+        </a>
+        <a href="blog.html#work-6" class="work-card">
+          <div class="img-placeholder">🎨</div>
+          <div class="work-caption"><h3>Кузовной ремонт и покраска</h3><span>Lada Vesta • декабрь 2025</span></div>
+        </a>
+      </div>
     </div>
   </section>
+
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <h2 class="section-title">Популярные услуги</h2>
+      <p class="section-sub">Полный цикл работ для вашего автомобиля</p>
+      <div class="grid grid-services">
+        <div class="service-card">
+          <div class="img-placeholder small">🔍</div>
+          <h3>Компьютерная диагностика</h3>
+          <p>Поиск неисправностей всех систем автомобиля за 30 минут.</p>
+          <div class="service-footer"><span class="price">от 1 500 ₽</span><a href="#booking" class="btn btn-small">Записаться</a></div>
+        </div>
+        <div class="service-card">
+          <div class="img-placeholder small">🛢️</div>
+          <h3>Замена масла и ТО</h3>
+          <p>Плановое ТО с оригинальными расходниками. Всего 40 минут.</p>
+          <div class="service-footer"><span class="price">от 2 500 ₽</span><a href="#booking" class="btn btn-small">Записаться</a></div>
+        </div>
+        <div class="service-card">
+          <div class="img-placeholder small">⚙️</div>
+          <h3>Ремонт двигателя</h3>
+          <p>Капитальный и текущий ремонт ДВС любой сложности.</p>
+          <div class="service-footer"><span class="price">от 15 000 ₽</span><a href="#booking" class="btn btn-small">Записаться</a></div>
+        </div>
+        <div class="service-card">
+          <div class="img-placeholder small">🛞</div>
+          <h3>Шиномонтаж</h3>
+          <p>Сезонная смена шин, балансировка, ремонт проколов.</p>
+          <div class="service-footer"><span class="price">от 2 000 ₽</span><a href="#booking" class="btn btn-small">Записаться</a></div>
+        </div>
+        <div class="service-card">
+          <div class="img-placeholder small">🔧</div>
+          <h3>Ремонт подвески</h3>
+          <p>Амортизаторы, рычаги, сайлентблоки, ступицы.</p>
+          <div class="service-footer"><span class="price">от 4 000 ₽</span><a href="#booking" class="btn btn-small">Записаться</a></div>
+        </div>
+        <div class="service-card">
+          <div class="img-placeholder small">❄️</div>
+          <h3>Кондиционеры</h3>
+          <p>Заправка, ремонт, чистка системы.</p>
+          <div class="service-footer"><span class="price">от 2 000 ₽</span><a href="#booking" class="btn btn-small">Записаться</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <div class="container">
+      <h2 class="section-title">Запчасти в наличии</h2>
+      <p class="section-sub">Оригинал и качественные аналоги для популярных марок</p>
+      <div class="grid grid-products">
+        <div class="product-card">
+          <div class="img-placeholder">🛢️</div>
+          <div class="product-body">
+            <h3>Моторное масло 5W-40</h3>
+            <p class="product-desc">Синтетика, 4 л, ACEA A3/B4</p>
+            <div class="product-footer"><span class="price">2 900 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">🔘</div>
+          <div class="product-body">
+            <h3>Тормозные колодки передние</h3>
+            <p class="product-desc">Керамика, комплект 4 шт.</p>
+            <div class="product-footer"><span class="price">3 400 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">🧴</div>
+          <div class="product-body">
+            <h3>Масляный фильтр</h3>
+            <p class="product-desc">Оригинал, для двигателей 1.6–2.0</p>
+            <div class="product-footer"><span class="price">850 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">🔩</div>
+          <div class="product-body">
+            <h3>Свечи зажигания</h3>
+            <p class="product-desc">Иридиевые, комплект 4 шт.</p>
+            <div class="product-footer"><span class="price">1 800 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">🅰️</div>
+          <div class="product-body">
+            <h3>Воздушный фильтр</h3>
+            <p class="product-desc">Для бензиновых двигателей</p>
+            <div class="product-footer"><span class="price">700 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">💧</div>
+          <div class="product-body">
+            <h3>Антифриз G12</h3>
+            <p class="product-desc">Концентрат, 5 л, красный</p>
+            <div class="product-footer"><span class="price">1 200 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">🔋</div>
+          <div class="product-body">
+            <h3>Аккумулятор 60Ah</h3>
+            <p class="product-desc">Необслуживаемый, 12V, 540A</p>
+            <div class="product-footer"><span class="price">6 500 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="img-placeholder">🪛</div>
+          <div class="product-body">
+            <h3>Щётки стеклоочистителя</h3>
+            <p class="product-desc">Бескаркасные, 60 / 45 см</p>
+            <div class="product-footer"><span class="price">1 400 ₽</span><button class="btn btn-small js-add-to-cart">В корзину</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="booking">
+    <div class="container container-narrow">
+      <h2 class="section-title">Записаться на ремонт</h2>
+      <p class="section-sub">Оставьте заявку — мы перезвоним в течение 15 минут</p>
+      <form class="contact-form" id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ваше имя *</label>
+            <input type="text" id="name" name="name" placeholder="Иван" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Услуга</label>
+          <select id="service" name="service">
+            <option value="">— Выберите услугу —</option>
+            <option>Компьютерная диагностика</option>
+            <option>Замена масла и ТО</option>
+            <option>Ремонт двигателя</option>
+            <option>Ремонт подвески</option>
+            <option>Шиномонтаж</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comment">Комментарий</label>
+          <textarea id="comment" name="comment" rows="4" placeholder="Марка авто, симптомы, удобное время"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -180,9 +255,7 @@
       <p>Вс: 10:00 – 18:00</p>
     </div>
   </div>
-  <div class="footer-bottom">
-    © 2026 АвтоМастер. Все права защищены.
-  </div>
+  <div class="footer-bottom">© 2026 АвтоМастер. Все права защищены.</div>
 </footer>
 
 <script src="js/script.js"></script>
