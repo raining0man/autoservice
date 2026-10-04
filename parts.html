@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Запчасти — Авто Геометрия</title>
+<title>Подбор запчастей — Авто Геометрия</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,139 +32,33 @@
 <main>
   <section class="page-hero">
     <div class="container">
-      <h1>Запчасти</h1>
-      <p>Подбор запчастей и кузовные элементы под любую марку авто</p>
+      <h1>Поможем подобрать запчасти</h1>
+      <p>Не продаём напрямую — консультируем и помогаем найти нужные детали под вашу марку авто</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-
-      <div class="filter-tabs">
+      <div class="filter-tabs" id="productFilters">
         <button class="filter-btn active" data-filter="all">Все</button>
         <button class="filter-btn" data-filter="podbor">Подбор запчастей</button>
         <button class="filter-btn" data-filter="body">Кузовные элементы</button>
       </div>
 
-      <div class="grid grid-products">
-
-        <div class="product-card" data-category="podbor">
-          <div class="img-placeholder">🔍</div>
-          <div class="product-body">
-            <h3>Подбор запчастей под VIN</h3>
-            <p class="product-desc">Подберём оригинал или аналог по VIN-коду вашего авто.</p>
-            <div class="product-footer">
-              <span class="price">по запросу</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="podbor">
-          <div class="img-placeholder">📋</div>
-          <div class="product-body">
-            <h3>Подбор по фото</h3>
-            <p class="product-desc">Пришлите фото детали — найдём нужную замену.</p>
-            <div class="product-footer">
-              <span class="price">по запросу</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="podbor">
-          <div class="img-placeholder">🚚</div>
-          <div class="product-body">
-            <h3>Доставка запчастей</h3>
-            <p class="product-desc">Привезём под заказ за 1–3 дня по всей России.</p>
-            <div class="product-footer">
-              <span class="price">от 500 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="body">
-          <div class="img-placeholder">🚪</div>
-          <div class="product-body">
-            <h3>Двери кузовные</h3>
-            <p class="product-desc">Передние и задние, новые и б/у. Любая марка.</p>
-            <div class="product-footer">
-              <span class="price">от 8 000 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="body">
-          <div class="img-placeholder">🪟</div>
-          <div class="product-body">
-            <h3>Крылья</h3>
-            <p class="product-desc">Передние и задние крылья, оригинал и аналоги.</p>
-            <div class="product-footer">
-              <span class="price">от 5 500 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="body">
-          <div class="img-placeholder">🚗</div>
-          <div class="product-body">
-            <h3>Капоты</h3>
-            <p class="product-desc">Стальные и алюминиевые капоты под покраску.</p>
-            <div class="product-footer">
-              <span class="price">от 9 000 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="body">
-          <div class="img-placeholder">🚙</div>
-          <div class="product-body">
-            <h3>Бамперы</h3>
-            <p class="product-desc">Передние и задние, с креплениями и без.</p>
-            <div class="product-footer">
-              <span class="price">от 6 500 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="body">
-          <div class="img-placeholder">🛡️</div>
-          <div class="product-body">
-            <h3>Пороги кузовные</h3>
-            <p class="product-desc">Ремонтные пороги и накладки под сварку.</p>
-            <div class="product-footer">
-              <span class="price">от 3 500 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-category="body">
-          <div class="img-placeholder">🔲</div>
-          <div class="product-body">
-            <h3>Арки и ремвставки</h3>
-            <p class="product-desc">Ремонтные арки, стаканы, лонжероны.</p>
-            <div class="product-footer">
-              <span class="price">от 2 800 ₽</span>
-              <button class="btn btn-small js-add-to-cart">Заказать</button>
-            </div>
-          </div>
-        </div>
-
+      <div class="grid grid-products" id="productsGrid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка…</p>
       </div>
     </div>
   </section>
 
   <section class="section section-alt">
     <div class="container container-narrow" style="text-align:center;">
-      <h2 class="section-title">Не нашли нужную деталь?</h2>
-      <p class="section-sub">Пришлите VIN или фото — подберём и привезём</p>
-      <a href="contacts.html" class="btn btn-primary">Оставить заявку</a>
+      <h2 class="section-title">Нужна консультация?</h2>
+      <p class="section-sub">Оставьте заявку — поможем подобрать деталь и подскажем, где её выгоднее заказать</p>
+      <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contacts.html" class="btn btn-primary">Оставить заявку</a>
+        <a href="tel:+79043331024" class="btn btn-outline">📞 +7 (904) 333-10-24</a>
+      </div>
     </div>
   </section>
 </main>
@@ -173,19 +67,21 @@
   <div class="container footer-grid">
     <div>
       <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
-      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
     </div>
     <div>
       <h4>Контакты</h4>
-      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
-      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
+      <p>📞 <a href="tel:+79043331024" data-contact="phoneLink">+7 (904) 333-10-24</a></p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru" data-contact="emailLink">auto98geometry@yandex.ru</a></p>
+      <p>📍 <span data-contact="address">Сабировская ул., 41В, Санкт-Петербург</span></p>
     </div>
     <div>
       <h4>Режим работы</h4>
-      <p>Пн–Пт: 9:00 – 19:00</p>
-      <p>Сб: 10:00 – 16:00</p>
-      <p>Вс: выходной</p>
+      <div data-contact="workHours">
+        <p>Пн–Пт: 9:00 – 19:00</p>
+        <p>Сб: 10:00 – 16:00</p>
+        <p>Вс: выходной</p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -194,5 +90,58 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+(function initParts() {
+  fetch('data/products.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('productsGrid');
+      const items = (data.items || []).sort((a, b) => a.id - b.id);
+      if (!items.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Товаров пока нет.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(p => {
+        const img = p.image
+          ? `<img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;">`
+          : `<div class="img-placeholder">${escapeHtml(p.icon || '📦')}</div>`;
+        return `
+          <div class="product-card" data-category="${escapeHtml(p.category)}">
+            ${img}
+            <div class="product-body">
+              <h3>${escapeHtml(p.title)}</h3>
+              <p class="product-desc">${escapeHtml(p.description)}</p>
+              <div class="product-footer" style="justify-content:flex-end;">
+                <a href="contacts.html" class="btn btn-small">Оставить заявку</a>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      document.querySelectorAll('#productFilters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          document.querySelectorAll('#productFilters .filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          grid.querySelectorAll('.product-card').forEach(card => {
+            const cat = card.dataset.category;
+            if (filter === 'all' || cat === filter) card.classList.remove('hidden');
+            else card.classList.add('hidden');
+          });
+        });
+      });
+    })
+    .catch(err => {
+      document.getElementById('productsGrid').innerHTML =
+        '<p style="grid-column:1/-1;text-align:center;color:var(--danger);padding:2rem;">Не удалось загрузить</p>';
+      console.error(err);
+    });
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
 </body>
 </html>
