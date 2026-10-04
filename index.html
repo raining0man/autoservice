@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Авто Геометрия — кузовной ремонт и покраска авто</title>
+<title>Авто Геометрия — кузовной ремонт и покраска авто в СПб</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -46,32 +46,9 @@
   <section class="section" id="works">
     <div class="container">
       <h2 class="section-title">Наши работы</h2>
-      <p class="section-sub">Примеры выполненных ремонтов — кликните, чтобы прочитать подробнее</p>
-      <div class="grid grid-works">
-        <a href="blog.html#work-1" class="work-card">
-          <div class="img-placeholder">🛠️</div>
-          <div class="work-caption"><h3>Восстановление геометрии на стапеле</h3><span>BMW 3 Series • март 2026</span></div>
-        </a>
-        <a href="blog.html#work-2" class="work-card">
-          <div class="img-placeholder">🔨</div>
-          <div class="work-caption"><h3>Переварка порогов и арок</h3><span>Toyota Camry • февраль 2026</span></div>
-        </a>
-        <a href="blog.html#work-3" class="work-card">
-          <div class="img-placeholder">🎨</div>
-          <div class="work-caption"><h3>Покраска элемента</h3><span>Kia Rio • февраль 2026</span></div>
-        </a>
-        <a href="blog.html#work-4" class="work-card">
-          <div class="img-placeholder">🚗</div>
-          <div class="work-caption"><h3>Восстановление после ДТП</h3><span>VW Tiguan • январь 2026</span></div>
-        </a>
-        <a href="blog.html#work-5" class="work-card">
-          <div class="img-placeholder">🛡️</div>
-          <div class="work-caption"><h3>Антикоррозийная обработка</h3><span>Mercedes C-Class • январь 2026</span></div>
-        </a>
-        <a href="blog.html#work-6" class="work-card">
-          <div class="img-placeholder">📐</div>
-          <div class="work-caption"><h3>Ремонт рамного авто</h3><span>Toyota Land Cruiser • декабрь 2025</span></div>
-        </a>
+      <p class="section-sub">Примеры выполненных ремонтов — кликните, чтобы посмотреть подробнее</p>
+      <div class="grid grid-works" id="worksGrid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка работ…</p>
       </div>
     </div>
   </section>
@@ -121,79 +98,6 @@
     </div>
   </section>
 
-  <section class="section" id="products">
-    <div class="container">
-      <h2 class="section-title">Запчасти в наличии</h2>
-      <p class="section-sub">Кузовные элементы и подбор запчастей под любую марку авто</p>
-      <div class="grid grid-products">
-        <div class="product-card">
-          <div class="img-placeholder">🚪</div>
-          <div class="product-body">
-            <h3>Двери кузовные</h3>
-            <p class="product-desc">Передние и задние, новые и б/у.</p>
-            <div class="product-footer"><span class="price">от 8 000 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🪟</div>
-          <div class="product-body">
-            <h3>Крылья</h3>
-            <p class="product-desc">Передние и задние, оригинал и аналоги.</p>
-            <div class="product-footer"><span class="price">от 5 500 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🚗</div>
-          <div class="product-body">
-            <h3>Капоты</h3>
-            <p class="product-desc">Стальные и алюминиевые, под покраску.</p>
-            <div class="product-footer"><span class="price">от 9 000 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🚙</div>
-          <div class="product-body">
-            <h3>Бамперы</h3>
-            <p class="product-desc">Передние и задние, с креплениями.</p>
-            <div class="product-footer"><span class="price">от 6 500 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🛡️</div>
-          <div class="product-body">
-            <h3>Пороги кузовные</h3>
-            <p class="product-desc">Ремонтные пороги и накладки под сварку.</p>
-            <div class="product-footer"><span class="price">от 3 500 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🔲</div>
-          <div class="product-body">
-            <h3>Арки и ремвставки</h3>
-            <p class="product-desc">Ремонтные арки, стаканы, лонжероны.</p>
-            <div class="product-footer"><span class="price">от 2 800 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🔩</div>
-          <div class="product-body">
-            <h3>Крепёж и клипсы</h3>
-            <p class="product-desc">Пистоны, клипсы, болты для кузовных работ.</p>
-            <div class="product-footer"><span class="price">от 200 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-        <div class="product-card">
-          <div class="img-placeholder">🎨</div>
-          <div class="product-body">
-            <h3>Материалы для покраски</h3>
-            <p class="product-desc">Грунт, шпаклёвка, лак, краска по коду.</p>
-            <div class="product-footer"><span class="price">от 800 ₽</span><button class="btn btn-small js-add-to-cart">Заказать</button></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="section section-alt" id="booking">
     <div class="container container-narrow">
       <h2 class="section-title">Записаться на ремонт</h2>
@@ -226,8 +130,14 @@
           <label for="comment">Комментарий</label>
           <textarea id="comment" name="comment" rows="4" placeholder="Марка авто, описание задачи, удобное время"></textarea>
         </div>
+        <div class="form-group form-consent">
+          <label class="checkbox-label">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a></span>
+          </label>
+        </div>
         <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+        <p class="form-note">Мы не передаём ваши данные третьим лицам.</p>
       </form>
     </div>
   </section>
@@ -243,7 +153,8 @@
     <div>
       <h4>Контакты</h4>
       <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>📍 Сабировская ул., 41В</p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
+      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
     </div>
     <div>
       <h4>Режим работы</h4>
@@ -252,9 +163,47 @@
       <p>Вс: выходной</p>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+  <div class="footer-bottom">
+    © 2026 Авто Геометрия. Все права защищены. | <a href="privacy.html" style="color:var(--accent);">Политика обработки персональных данных</a>
+  </div>
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+// Загрузка работ из data/works.json (показываем последние 6)
+(function initHomeWorks() {
+  fetch('data/works.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('worksGrid');
+      const items = (data.items || []).sort((a, b) => b.id - a.id).slice(0, 6);
+      if (!items.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Работ пока нет.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(w => {
+        const img = w.images && w.images[0]
+          ? `<img src="${w.images[0]}" alt="${escapeHtml(w.title)}" loading="lazy">`
+          : `<div class="img-placeholder">📐</div>`;
+        return `
+          <a href="work.html?id=${w.id}" class="work-card">
+            ${img}
+            <div class="work-caption">
+              <h3>${escapeHtml(w.title)}</h3>
+              <span>${escapeHtml(w.car)} • ${escapeHtml((w.date || '').toLowerCase())}</span>
+            </div>
+          </a>`;
+      }).join('');
+    })
+    .catch(() => {
+      const grid = document.getElementById('worksGrid');
+      if (grid) grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить работы.</p>';
+    });
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
 </body>
 </html>
