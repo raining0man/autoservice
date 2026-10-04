@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Запчасти — Авто Геометрия</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">ГЕО<span>МЕТРИЯ</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Главная</a></li>
+      <li><a href="services.html" class="nav-link">Услуги</a></li>
+      <li><a href="parts.html" class="nav-link active">Запчасти</a></li>
+      <li><a href="blog.html" class="nav-link">Блог</a></li>
+      <li><a href="about.html" class="nav-link">О сервисе</a></li>
+      <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"><span class="theme-icon">🌙</span></button>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Запчасти</h1>
+      <p>Подбор запчастей и кузовные элементы под любую марку авто</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="podbor">Подбор запчастей</button>
+        <button class="filter-btn" data-filter="body">Кузовные элементы</button>
+      </div>
+
+      <div class="grid grid-products">
+
+        <div class="product-card" data-category="podbor">
+          <div class="img-placeholder">🔍</div>
+          <div class="product-body">
+            <h3>Подбор запчастей под VIN</h3>
+            <p class="product-desc">Подберём оригинал или аналог по VIN-коду вашего авто.</p>
+            <div class="product-footer">
+              <span class="price">по запросу</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="podbor">
+          <div class="img-placeholder">📋</div>
+          <div class="product-body">
+            <h3>Подбор по фото</h3>
+            <p class="product-desc">Пришлите фото детали — найдём нужную замену.</p>
+            <div class="product-footer">
+              <span class="price">по запросу</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="podbor">
+          <div class="img-placeholder">🚚</div>
+          <div class="product-body">
+            <h3>Доставка запчастей</h3>
+            <p class="product-desc">Привезём под заказ за 1–3 дня по всей России.</p>
+            <div class="product-footer">
+              <span class="price">от 500 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="body">
+          <div class="img-placeholder">🚪</div>
+          <div class="product-body">
+            <h3>Двери кузовные</h3>
+            <p class="product-desc">Передние и задние, новые и б/у. Любая марка.</p>
+            <div class="product-footer">
+              <span class="price">от 8 000 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="body">
+          <div class="img-placeholder">🪟</div>
+          <div class="product-body">
+            <h3>Крылья</h3>
+            <p class="product-desc">Передние и задние крылья, оригинал и аналоги.</p>
+            <div class="product-footer">
+              <span class="price">от 5 500 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="body">
+          <div class="img-placeholder">🚗</div>
+          <div class="product-body">
+            <h3>Капоты</h3>
+            <p class="product-desc">Стальные и алюминиевые капоты под покраску.</p>
+            <div class="product-footer">
+              <span class="price">от 9 000 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="body">
+          <div class="img-placeholder">🚙</div>
+          <div class="product-body">
+            <h3>Бамперы</h3>
+            <p class="product-desc">Передние и задние, с креплениями и без.</p>
+            <div class="product-footer">
+              <span class="price">от 6 500 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="body">
+          <div class="img-placeholder">🛡️</div>
+          <div class="product-body">
+            <h3>Пороги кузовные</h3>
+            <p class="product-desc">Ремонтные пороги и накладки под сварку.</p>
+            <div class="product-footer">
+              <span class="price">от 3 500 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="body">
+          <div class="img-placeholder">🔲</div>
+          <div class="product-body">
+            <h3>Арки и ремвставки</h3>
+            <p class="product-desc">Ремонтные арки, стаканы, лонжероны.</p>
+            <div class="product-footer">
+              <span class="price">от 2 800 ₽</span>
+              <button class="btn btn-small js-add-to-cart">Заказать</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container container-narrow" style="text-align:center;">
+      <h2 class="section-title">Не нашли нужную деталь?</h2>
+      <p class="section-sub">Пришлите VIN или фото — подберём и привезём</p>
+      <a href="contacts.html" class="btn btn-primary">Оставить заявку</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
+      <p>📍 Сабировская ул., 41В</p>
+    </div>
+    <div>
+      <h4>Режим работы</h4>
+      <p>Пн–Пт: 9:00 – 19:00</p>
+      <p>Сб: 10:00 – 16:00</p>
+      <p>Вс: выходной</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
