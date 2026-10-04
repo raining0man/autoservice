@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Восстановление геометрии BMW 3 Series — Авто Геометрия</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+<header class="header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">ГЕО<span>МЕТРИЯ</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Главная</a></li>
+      <li><a href="services.html" class="nav-link">Услуги</a></li>
+      <li><a href="parts.html" class="nav-link">Запчасти</a></li>
+      <li><a href="blog.html" class="nav-link active">Блог</a></li>
+      <li><a href="about.html" class="nav-link">О сервисе</a></li>
+      <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"><span class="theme-icon">🌙</span></button>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Хлебные крошки -->
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="index.html">Главная</a>
+      <span>/</span>
+      <a href="blog.html">Блог</a>
+      <span>/</span>
+      <a href="blog.html#tab-works">Наши работы</a>
+      <span>/</span>
+      Восстановление геометрии BMW 3 Series
+    </div>
+  </div>
+
+  <!-- Заголовок работы -->
+  <section class="article-hero">
+    <div class="container container-narrow">
+      <span class="article-date">Март 2026</span>
+      <h1>Восстановление геометрии на стапеле — BMW 3 Series</h1>
+      <p class="article-meta">BMW 3 Series • Кузовной ремонт</p>
+    </div>
+  </section>
+
+  <!-- Контент -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container container-narrow">
+
+      <!-- Галерея до 5 фото -->
+      <div class="article-gallery">
+        <div class="img-placeholder">📸 Фото 1</div>
+        <div class="img-placeholder">📸 Фото 2</div>
+        <div class="img-placeholder">📸 Фото 3</div>
+        <div class="img-placeholder">📸 Фото 4</div>
+        <div class="img-placeholder">📸 Фото 5</div>
+      </div>
+
+      <!-- Текст -->
+      <div class="article-content">
+        <p>Клиент обратился после серьёзного ДТП. Удар пришёлся в переднюю часть — визуально было видно смещение лонжеронов и деформацию кузова. По результатам первичного осмотра требовалось восстановление заводской геометрии на стапеле.</p>
+
+        <h2>Что сделали</h2>
+        <ul>
+          <li>Провели полную диагностику геометрии на измерительной системе</li>
+          <li>Установили автомобиль на стапель и зафиксировали по контрольным точкам</li>
+          <li>Вытянули кузов в заводские параметры</li>
+          <li>Заменили деформированные элементы (лонжерон, усилитель)</li>
+          <li>Провели контрольную проверку геометрии после сборки</li>
+        </ul>
+
+        <h2>Результат</h2>
+        <p>Кузов полностью восстановлен до заводских параметров. Все контрольные точки соответствуют допускам производителя. Клиент получил автомобиль с гарантией <strong>12 месяцев</strong> на выполненные работы.</p>
+
+        <p><strong>Срок выполнения:</strong> 10 рабочих дней.<br>
+        <strong>Стоимость:</strong> рассчитывается индивидуально после осмотра.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Форма записи -->
+  <section class="section section-alt">
+    <div class="container container-narrow">
+      <h2 class="section-title">Записаться на ремонт</h2>
+      <p class="section-sub">Оставьте заявку — мы перезвоним в течение 15 минут</p>
+      <form class="contact-form" id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ваше имя *</label>
+            <input type="text" id="name" name="name" placeholder="Иван" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Услуга</label>
+          <select id="service" name="service">
+            <option value="">— Выберите услугу —</option>
+            <option>Кузовной ремонт</option>
+            <option>Восстановление геометрии</option>
+            <option>Покраска авто</option>
+            <option>Антикоррозийная обработка</option>
+            <option>Удаление вмятин</option>
+            <option>Подбор запчастей</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comment">Комментарий</label>
+          <textarea id="comment" name="comment" rows="4" placeholder="Марка авто, описание задачи, удобное время"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
+      <p>📍 Сабировская ул., 41В</p>
+    </div>
+    <div>
+      <h4>Режим работы</h4>
+      <p>Пн–Пт: 9:00 – 19:00</p>
+      <p>Сб: 10:00 – 16:00</p>
+      <p>Вс: выходной</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
