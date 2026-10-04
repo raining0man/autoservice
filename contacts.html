@@ -56,7 +56,12 @@
         <div class="contact-card">
           <div class="icon">📍</div>
           <h4>Адрес</h4>
-          <p>Сабировская ул., 41В</p>
+          <p>Сабировская ул., 41В<br>Санкт-Петербург</p>
+        </div>
+        <div class="contact-card">
+          <div class="icon">✉️</div>
+          <h4>Email</h4>
+          <p><a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
         </div>
       </div>
 
@@ -99,8 +104,14 @@
             <label for="comment">Комментарий</label>
             <textarea id="comment" name="comment" rows="4" placeholder="Марка авто, описание задачи, удобное время"></textarea>
           </div>
+          <div class="form-group form-consent">
+            <label class="checkbox-label">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a></span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
-          <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+          <p class="form-note">Мы не передаём ваши данные третьим лицам.</p>
         </form>
       </div>
     </div>
@@ -109,11 +120,11 @@
   <section class="section section-alt">
     <div class="container">
       <h2 class="section-title">Как нас найти</h2>
-      <p class="section-sub">Мы находимся по адресу: Сабировская ул., 41В</p>
+      <p class="section-sub">Мы находимся по адресу: Сабировская ул., 41В, Санкт-Петербург</p>
 
       <div class="map-wrap">
         <iframe
-          src="https://yandex.ru/map-widget/v1/?ll=82.934600%2C55.008400&z=12"
+          src="https://yandex.ru/map-widget/v1/?ll=30.264000%2C59.983000&z=15"
           title="Карта — Авто Геометрия"
           allowfullscreen
           loading="lazy">
@@ -132,7 +143,8 @@
     <div>
       <h4>Контакты</h4>
       <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>📍 Сабировская ул., 41В</p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
+      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
     </div>
     <div>
       <h4>Режим работы</h4>
@@ -141,7 +153,9 @@
       <p>Вс: выходной</p>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+  <div class="footer-bottom">
+    © 2026 Авто Геометрия. Все права защищены. | <a href="privacy.html" style="color:var(--accent);">Политика обработки персональных данных</a>
+  </div>
 </footer>
 
 <script src="js/script.js"></script>
