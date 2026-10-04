@@ -39,8 +39,6 @@
 })();
 
 // ==================== ФОРМА ЗАЯВКИ ====================
-// Отправляем заявку на backend админки.
-// Backend (Layero) сохраняет в JSON и отправляет в Telegram.
 const ADMIN_API = 'https://autogeometryadmin.layero.app';
 
 (function initBookingForm() {
@@ -54,9 +52,15 @@ const ADMIN_API = 'https://autogeometryadmin.layero.app';
     const phone = form.querySelector('#phone')?.value.trim() || '';
     const service = form.querySelector('#service')?.value.trim() || '';
     const comment = form.querySelector('#comment')?.value.trim() || '';
+    const consent = form.querySelector('#consent')?.checked || false;
 
     if (!name || !phone) {
       showToast('Заполните имя и телефон');
+      return;
+    }
+
+    if (!consent) {
+      showToast('Подтвердите согласие на обработку данных');
       return;
     }
 
@@ -76,6 +80,7 @@ const ADMIN_API = 'https://autogeometryadmin.layero.app';
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name, phone, service, comment,
+          consent: true,
           source: document.title || 'Сайт'
         })
       });
@@ -97,7 +102,7 @@ const ADMIN_API = 'https://autogeometryadmin.layero.app';
   });
 })();
 
-// Кнопки "Заказать" / "В корзину"
+// Кнопки "Заказать"
 (function initCart() {
   document.querySelectorAll('.js-add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => showToast('Заявка отправлена — мы свяжемся с вами'));
@@ -118,7 +123,7 @@ function showToast(message) {
   toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Подсветка активной ссылки при скролле (только на главной)
+// Подсветка активной ссылки при скролле
 (function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const links = document.querySelectorAll('.nav-link[href^="#"]');
@@ -128,7 +133,7 @@ function showToast(message) {
     const scrollPos = window.scrollY + 120;
     sections.forEach(sec => {
       const top = sec.offsetTop;
-      const bottom = top + top.offsetHeight;
+      const bottom = top + sec.offsetHeight;
       const id = sec.getAttribute('id');
       links.forEach(link => {
         if (link.getAttribute('href') === `#${id}`) {
