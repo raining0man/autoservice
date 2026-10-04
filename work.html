@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Авто Геометрия. Все права защищены. | <a href="privacy.html" style="color:var(--accent);">Политика обработки персональных данных</a>
+    © 2026 Авто Геометрия. Все права защищены. | <a href="index.html#privacy" style="color:var(--accent);">Политика обработки персональных данных</a>
   </div>
 </footer>
 
@@ -151,7 +151,7 @@
               <div class="form-group form-consent">
                 <label class="checkbox-label">
                   <input type="checkbox" id="consent" name="consent" required>
-                  <span>Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a></span>
+                  <span>Я согласен на обработку персональных данных в соответствии с <a href="index.html#privacy">Политикой обработки персональных данных</a></span>
                 </label>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
@@ -160,7 +160,7 @@
           </div>
         </section>`;
 
-      // Форма создана динамически — навешиваем обработчик заново
+      // Привязываем форму после динамического рендера
       if (window.initBookingFormDynamic) window.initBookingFormDynamic();
     })
     .catch(err => {
