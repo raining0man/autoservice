@@ -44,33 +44,35 @@
         <div class="contact-card">
           <div class="icon">📞</div>
           <h4>Телефон</h4>
-          <p><a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
+          <p><a href="tel:+79043331024" data-contact="phoneLink">+7 (904) 333-10-24</a></p>
         </div>
         <div class="contact-card">
           <div class="icon">🕒</div>
           <h4>Режим работы</h4>
-          <p>Пн–Пт: 9:00 – 19:00</p>
-          <p>Сб: 10:00 – 16:00</p>
-          <p>Вс: выходной</p>
+          <div data-contact="workHours">
+            <p>Пн–Пт: 9:00 – 19:00</p>
+            <p>Сб: 10:00 – 16:00</p>
+            <p>Вс: выходной</p>
+          </div>
         </div>
         <div class="contact-card">
           <div class="icon">📍</div>
           <h4>Адрес</h4>
-          <p>Сабировская ул., 41В<br>Санкт-Петербург</p>
+          <p data-contact="address">Сабировская ул., 41В, Санкт-Петербург</p>
         </div>
         <div class="contact-card">
           <div class="icon">✉️</div>
           <h4>Email</h4>
-          <p><a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
+          <p><a href="mailto:auto98geometry@yandex.ru" data-contact="emailLink">auto98geometry@yandex.ru</a></p>
         </div>
       </div>
 
       <div style="text-align:center; margin-bottom: 3rem;">
         <h2 class="section-title" style="margin-bottom: 1.5rem;">Напишите нам</h2>
         <div class="messenger-buttons">
-          <a href="https://wa.me/79043331024" class="messenger-btn whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a href="https://t.me/+79043331024" class="messenger-btn telegram" target="_blank" rel="noopener">✈️ Telegram</a>
-          <a href="tel:+79043331024" class="messenger-btn phone">📞 Позвонить</a>
+          <a href="https://wa.me/79043331024" class="messenger-btn whatsapp" target="_blank" rel="noopener" data-contact="whatsapp">💬 WhatsApp</a>
+          <a href="https://t.me/+79043331024" class="messenger-btn telegram" target="_blank" rel="noopener" data-contact="telegram">✈️ Telegram</a>
+          <a href="tel:+79043331024" class="messenger-btn phone" data-contact="phoneLink">📞 Позвонить</a>
         </div>
       </div>
 
@@ -120,10 +122,10 @@
   <section class="section section-alt">
     <div class="container">
       <h2 class="section-title">Как нас найти</h2>
-      <p class="section-sub">Мы находимся по адресу: Сабировская ул., 41В, Санкт-Петербург</p>
+      <p class="section-sub" data-contact="address">Мы находимся по адресу: Сабировская ул., 41В, Санкт-Петербург</p>
 
       <div class="map-wrap">
-        <iframe
+        <iframe id="mapFrame"
           src="https://yandex.ru/map-widget/v1/?ll=30.264000%2C59.983000&z=15"
           title="Карта — Авто Геометрия"
           allowfullscreen
@@ -138,19 +140,21 @@
   <div class="container footer-grid">
     <div>
       <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
-      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
     </div>
     <div>
       <h4>Контакты</h4>
-      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
-      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
+      <p>📞 <a href="tel:+79043331024" data-contact="phoneLink">+7 (904) 333-10-24</a></p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru" data-contact="emailLink">auto98geometry@yandex.ru</a></p>
+      <p>📍 <span data-contact="address">Сабировская ул., 41В, Санкт-Петербург</span></p>
     </div>
     <div>
       <h4>Режим работы</h4>
-      <p>Пн–Пт: 9:00 – 19:00</p>
-      <p>Сб: 10:00 – 16:00</p>
-      <p>Вс: выходной</p>
+      <div data-contact="workHours">
+        <p>Пн–Пт: 9:00 – 19:00</p>
+        <p>Сб: 10:00 – 16:00</p>
+        <p>Вс: выходной</p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -159,5 +163,52 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+(function initContactsPage() {
+  fetch('data/contacts.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(c => {
+      // Телефон
+      document.querySelectorAll('[data-contact="phoneLink"]').forEach(el => {
+        el.textContent = c.phone || el.textContent;
+        if (c.phoneRaw) el.setAttribute('href', 'tel:' + c.phoneRaw);
+      });
+
+      // Email
+      document.querySelectorAll('[data-contact="emailLink"]').forEach(el => {
+        el.textContent = c.email || el.textContent;
+        if (c.email) el.setAttribute('href', 'mailto:' + c.email);
+      });
+
+      // Адрес
+      document.querySelectorAll('[data-contact="address"]').forEach(el => {
+        el.textContent = c.address || el.textContent;
+      });
+
+      // Часы работы
+      document.querySelectorAll('[data-contact="workHours"]').forEach(el => {
+        if (Array.isArray(c.workHours) && c.workHours.length) {
+          el.innerHTML = c.workHours.map(h => `<p>${escapeHtml(h)}</p>`).join('');
+        }
+      });
+
+      // Мессенджеры
+      const wa = document.querySelector('[data-contact="whatsapp"]');
+      if (wa && c.whatsapp) wa.setAttribute('href', c.whatsapp);
+      const tg = document.querySelector('[data-contact="telegram"]');
+      if (tg && c.telegram) tg.setAttribute('href', c.telegram);
+
+      // Карта
+      const map = document.getElementById('mapFrame');
+      if (map && c.mapSrc) map.setAttribute('src', c.mapSrc);
+    })
+    .catch(err => console.error('contacts load error', err));
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
 </body>
 </html>
