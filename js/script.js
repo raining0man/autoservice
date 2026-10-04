@@ -38,20 +38,62 @@
   });
 })();
 
-// Форма записи
+// ==================== ФОРМА ЗАЯВКИ ====================
+// Отправляем заявку на backend админки.
+// Backend (Layero) сохраняет в JSON и отправляет в Telegram.
+const ADMIN_API = 'https://autogeometryadmin.layero.app';
+
 (function initBookingForm() {
   const form = document.getElementById('bookingForm');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = form.querySelector('#name').value.trim();
-    const phone = form.querySelector('#phone').value.trim();
+
+    const name = form.querySelector('#name')?.value.trim() || '';
+    const phone = form.querySelector('#phone')?.value.trim() || '';
+    const service = form.querySelector('#service')?.value.trim() || '';
+    const comment = form.querySelector('#comment')?.value.trim() || '';
+
     if (!name || !phone) {
       showToast('Заполните имя и телефон');
       return;
     }
-    showToast(`Спасибо, ${name}! Мы перезвоним в течение 15 минут.`);
-    form.reset();
+
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      showToast('Проверьте номер телефона');
+      return;
+    }
+
+    const btn = form.querySelector('button[type=submit]');
+    const originalText = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Отправляем...'; }
+
+    try {
+      const res = await fetch(ADMIN_API + '/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name, phone, service, comment,
+          source: document.title || 'Сайт'
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Ошибка отправки');
+      }
+
+      showToast(`Спасибо, ${name}! Мы перезвоним в течение 15 минут.`);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      showToast('Не удалось отправить. Позвоните нам: +7 (904) 333-10-24');
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+    }
   });
 })();
 
@@ -59,60 +101,6 @@
 (function initCart() {
   document.querySelectorAll('.js-add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => showToast('Заявка отправлена — мы свяжемся с вами'));
-  });
-})();
-
-// Вкладки блога (Наши работы / Статьи / Новости)
-(function initBlogTabs() {
-  const tabs = document.querySelectorAll('.blog-tab');
-  const sections = document.querySelectorAll('.blog-section');
-  if (!tabs.length || !sections.length) return;
-
-  // Активация вкладки по хэшу в URL: #tab-articles, #tab-news
-  const hash = window.location.hash.replace('#', '');
-  if (hash && document.getElementById(hash)) {
-    tabs.forEach(t => t.classList.remove('active'));
-    sections.forEach(s => s.classList.remove('active'));
-    const targetTab = document.querySelector(`.blog-tab[data-tab="${hash}"]`);
-    if (targetTab) targetTab.classList.add('active');
-    document.getElementById(hash).classList.add('active');
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.tab;
-      tabs.forEach(t => t.classList.remove('active'));
-      sections.forEach(s => s.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById(target).classList.add('active');
-    });
-  });
-})();
-
-// Фильтры (работают независимо в каждой группе .filter-tabs)
-(function initFilters() {
-  document.querySelectorAll('.filter-tabs').forEach(group => {
-    const buttons = group.querySelectorAll('.filter-btn');
-    // Ищем карточки в пределах родительской секции
-    const scope = group.closest('.blog-section') || document;
-    const cards = scope.querySelectorAll('[data-category]');
-    if (!buttons.length || !cards.length) return;
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        cards.forEach(card => {
-          const cat = card.dataset.category;
-          if (filter === 'all' || cat === filter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
   });
 })();
 
@@ -129,3 +117,27 @@ function showToast(message) {
   clearTimeout(toast._timer);
   toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
 }
+
+// Подсветка активной ссылки при скролле (только на главной)
+(function initScrollSpy() {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-link[href^="#"]');
+  if (!sections.length || !links.length) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(sec => {
+      const top = sec.offsetTop;
+      const bottom = top + top.offsetHeight;
+      const id = sec.getAttribute('id');
+      links.forEach(link => {
+        if (link.getAttribute('href') === `#${id}`) {
+          if (scrollPos >= top && scrollPos < bottom) {
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+  });
+})();
