@@ -62,24 +62,55 @@
   });
 })();
 
-// Фильтры в каталоге запчастей
-(function initFilters() {
-  const buttons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.product-card[data-category]');
-  if (!buttons.length || !cards.length) return;
+// Вкладки блога (Наши работы / Статьи / Новости)
+(function initBlogTabs() {
+  const tabs = document.querySelectorAll('.blog-tab');
+  const sections = document.querySelectorAll('.blog-section');
+  if (!tabs.length || !sections.length) return;
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      cards.forEach(card => {
-        const cat = card.dataset.category;
-        if (filter === 'all' || cat === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
+  // Активация вкладки по хэшу в URL: #tab-articles, #tab-news
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) {
+    tabs.forEach(t => t.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+    const targetTab = document.querySelector(`.blog-tab[data-tab="${hash}"]`);
+    if (targetTab) targetTab.classList.add('active');
+    document.getElementById(hash).classList.add('active');
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+})();
+
+// Фильтры (работают независимо в каждой группе .filter-tabs)
+(function initFilters() {
+  document.querySelectorAll('.filter-tabs').forEach(group => {
+    const buttons = group.querySelectorAll('.filter-btn');
+    // Ищем карточки в пределах родительской секции
+    const scope = group.closest('.blog-section') || document;
+    const cards = scope.querySelectorAll('[data-category]');
+    if (!buttons.length || !cards.length) return;
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        cards.forEach(card => {
+          const cat = card.dataset.category;
+          if (filter === 'all' || cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
       });
     });
   });
