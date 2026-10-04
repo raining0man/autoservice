@@ -38,54 +38,8 @@
   </section>
 
   <section class="section">
-    <div class="container">
-
-      <div class="service-category">
-        <div class="service-category-head">
-          <div class="service-cat-icon">🔨</div>
-          <h2>Кузовной ремонт</h2>
-        </div>
-        <ul class="service-list">
-          <li>Подбор запчастей</li>
-          <li>Переварка порогов</li>
-          <li>Переварка арок</li>
-          <li>Переварка стаканов</li>
-          <li>Ремонт рамных авто</li>
-          <li>Восстановление геометрии на стапеле</li>
-          <li>Удаление вмятин</li>
-          <li>Восстановление после ДТП</li>
-          <li>Замена элементов</li>
-        </ul>
-        <a href="contacts.html" class="btn btn-primary">Записаться на кузовной ремонт</a>
-      </div>
-
-      <div class="service-category">
-        <div class="service-category-head">
-          <div class="service-cat-icon">🎨</div>
-          <h2>Покраска авто</h2>
-        </div>
-        <ul class="service-list">
-          <li>Покраска элемента</li>
-          <li>Покраска целиком</li>
-          <li>Локальная покраска</li>
-        </ul>
-        <a href="contacts.html" class="btn btn-primary">Записаться на покраску</a>
-      </div>
-
-      <div class="service-category">
-        <div class="service-category-head">
-          <div class="service-cat-icon">🛡️</div>
-          <h2>Антикоррозийная обработка</h2>
-        </div>
-        <ul class="service-list">
-          <li>Обработка днища</li>
-          <li>Обработка скрытых полостей</li>
-          <li>Обработка арок и порогов</li>
-          <li>Антигравийная защита</li>
-        </ul>
-        <a href="contacts.html" class="btn btn-primary">Записаться на обработку</a>
-      </div>
-
+    <div class="container" id="servicesContainer">
+      <p style="text-align:center;color:var(--text-muted);padding:2rem;">Загрузка услуг…</p>
     </div>
   </section>
 
@@ -102,7 +56,7 @@
   <div class="container footer-grid">
     <div>
       <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
-      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
     </div>
     <div>
       <h4>Контакты</h4>
@@ -123,5 +77,41 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+(function initServicesPage() {
+  fetch('data/services.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const container = document.getElementById('servicesContainer');
+      const services = data.items || [];
+      if (!services.length) {
+        container.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:2rem;">Услуг пока нет.</p>';
+        return;
+      }
+      container.innerHTML = services.map(s => {
+        const items = (s.listItems || []).map(item =>
+          `<li>${escapeHtml(item)}</li>`
+        ).join('');
+        return `
+          <div class="service-category">
+            <div class="service-category-head">
+              <div class="service-cat-icon">${escapeHtml(s.icon || '🔧')}</div>
+              <h2>${escapeHtml(s.title)}</h2>
+            </div>
+            <ul class="service-list">${items}</ul>
+            <a href="contacts.html" class="btn btn-primary">${escapeHtml(s.buttonText || 'Записаться')}</a>
+          </div>`;
+      }).join('');
+    })
+    .catch(() => {
+      document.getElementById('servicesContainer').innerHTML = '<p style="text-align:center;color:var(--danger);padding:2rem;">Не удалось загрузить услуги</p>';
+    });
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
 </body>
 </html>
