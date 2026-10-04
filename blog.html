@@ -30,125 +30,168 @@
 </header>
 
 <main>
+
   <section class="page-hero">
     <div class="container">
       <h1>Блог Авто Геометрия</h1>
-      <p>Наши работы и полезные советы по кузовному ремонту</p>
+      <p>Наши работы, полезные статьи и новости сервиса</p>
     </div>
   </section>
 
   <section class="section">
-    <div class="container container-narrow">
-      <h2 class="section-title">Наши работы</h2>
-      <p class="section-sub">Подробные отчёты о выполненных ремонтах</p>
+    <div class="container">
 
-      <article class="work-post" id="work-1">
-        <div class="img-placeholder large">📐</div>
-        <div class="work-post-body">
-          <span class="work-date">Март 2026</span>
-          <h2>Восстановление геометрии на стапеле — BMW 3 Series</h2>
-          <p>Клиент обратился после серьёзного ДТП: смещение лонжеронов, деформация кузова. Требовалось восстановление заводской геометрии.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Диагностика геометрии на измерительной системе</li>
-            <li>Установка авто на стапель</li>
-            <li>Вытяжка кузова по контрольным точкам</li>
-            <li>Замена деформированных элементов</li>
-            <li>Контрольная проверка геометрии</li>
-          </ul>
-          <p><strong>Срок:</strong> 10 рабочих дней. <strong>Результат:</strong> полное восстановление заводских параметров.</p>
-        </div>
-      </article>
+      <!-- Вкладки блога -->
+      <div class="blog-tabs">
+        <button class="blog-tab active" data-tab="tab-works">Наши работы</button>
+        <button class="blog-tab" data-tab="tab-articles">Статьи</button>
+        <button class="blog-tab" data-tab="tab-news">Новости</button>
+      </div>
 
-      <article class="work-post" id="work-2">
-        <div class="img-placeholder large">🔨</div>
-        <div class="work-post-body">
-          <span class="work-date">Февраль 2026</span>
-          <h2>Переварка порогов и арок — Toyota Camry</h2>
-          <p>Коррозия порогов и арок после нескольких зим. Требовалась полная замена ремонтных вставок.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Зачистка и оценка повреждений</li>
-            <li>Вырезание прогнивших участков</li>
-            <li>Изготовление и подгонка ремвставок</li>
-            <li>Сварка полуавтоматом</li>
-            <li>Шлифовка и подготовка к покраске</li>
-          </ul>
-          <p><strong>Срок:</strong> 5 дней. <strong>Результат:</strong> полностью восстановленные пороги и арки.</p>
-        </div>
-      </article>
+      <!-- ===== СЕКЦИЯ 1: НАШИ РАБОТЫ ===== -->
+      <div class="blog-section active" id="tab-works">
+        <h2 class="section-title">Наши работы</h2>
+        <p class="section-sub">Отчёты о выполненных ремонтах — кликните, чтобы посмотреть подробнее</p>
 
-      <article class="work-post" id="work-3">
-        <div class="img-placeholder large">🎨</div>
-        <div class="work-post-body">
-          <span class="work-date">Февраль 2026</span>
-          <h2>Покраска элемента — Kia Rio</h2>
-          <p>Повреждение переднего крыла и двери. Требовалась покраска с точным подбором цвета.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Компьютерный подбор краски по коду</li>
-            <li>Подготовка поверхности (грунт, шлифовка)</li>
-            <li>Покраска в камере с контролем температуры</li>
-            <li>Нанесение лака и полировка</li>
-          </ul>
-          <p><strong>Срок:</strong> 2 дня. <strong>Результат:</strong> идеальное совпадение цвета.</p>
+        <!-- Фильтр по видам работ -->
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="body">Кузовной ремонт</button>
+          <button class="filter-btn" data-filter="paint">Покраска</button>
+          <button class="filter-btn" data-filter="anticor">Антикор</button>
+          <button class="filter-btn" data-filter="other">Прочие работы</button>
         </div>
-      </article>
 
-      <article class="work-post" id="work-4">
-        <div class="img-placeholder large">🚗</div>
-        <div class="work-post-body">
-          <span class="work-date">Январь 2026</span>
-          <h2>Восстановление после ДТП — VW Tiguan</h2>
-          <p>Удар в переднюю часть: повреждены бампер, капот, крыло, радиаторная решётка. Комплексный ремонт.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Дефектовка и подбор запчастей</li>
-            <li>Замена повреждённых элементов</li>
-            <li>Рихтовка и подгонка зазоров</li>
-            <li>Покраска новых деталей</li>
-            <li>Сборка и финальный контроль</li>
-          </ul>
-          <p><strong>Срок:</strong> 8 дней. <strong>Результат:</strong> авто как после покупки.</p>
-        </div>
-      </article>
+        <div class="grid grid-works">
 
-      <article class="work-post" id="work-5">
-        <div class="img-placeholder large">🛡️</div>
-        <div class="work-post-body">
-          <span class="work-date">Январь 2026</span>
-          <h2>Антикоррозийная обработка — Mercedes C-Class</h2>
-          <p>Профилактика коррозии перед зимним сезоном. Полная обработка днища и скрытых полостей.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Мойка днища и очистка от старого покрытия</li>
-            <li>Обработка скрытых полостей</li>
-            <li>Нанесение антикора на днище</li>
-            <li>Антигравийная защита арок и порогов</li>
-          </ul>
-          <p><strong>Срок:</strong> 2 дня. <strong>Результат:</strong> полная защита от коррозии на годы.</p>
-        </div>
-      </article>
+          <a href="work-1.html" class="work-card" data-category="body">
+            <div class="img-placeholder">📐</div>
+            <div class="work-caption">
+              <h3>Восстановление геометрии на стапеле</h3>
+              <span>BMW 3 Series • март 2026</span>
+            </div>
+          </a>
 
-      <article class="work-post" id="work-6">
-        <div class="img-placeholder large">🚙</div>
-        <div class="work-post-body">
-          <span class="work-date">Декабрь 2025</span>
-          <h2>Ремонт рамного авто — Toyota Land Cruiser</h2>
-          <p>Деформация рамы после эксплуатации по бездорожью. Требовалась правка рамы на стапеле.</p>
-          <p><strong>Что сделали:</strong></p>
-          <ul>
-            <li>Диагностика геометрии рамы</li>
-            <li>Правка рамы на стапеле</li>
-            <li>Усиление проблемных участков</li>
-            <li>Антикоррозийная обработка рамы</li>
-          </ul>
-          <p><strong>Срок:</strong> 6 дней. <strong>Результат:</strong> рама соответствует заводским допускам.</p>
+          <a href="work-2.html" class="work-card" data-category="body">
+            <div class="img-placeholder">🔨</div>
+            <div class="work-caption">
+              <h3>Переварка порогов и арок</h3>
+              <span>Toyota Camry • февраль 2026</span>
+            </div>
+          </a>
+
+          <a href="work-3.html" class="work-card" data-category="paint">
+            <div class="img-placeholder">🎨</div>
+            <div class="work-caption">
+              <h3>Покраска элемента</h3>
+              <span>Kia Rio • февраль 2026</span>
+            </div>
+          </a>
+
+          <a href="work-4.html" class="work-card" data-category="body">
+            <div class="img-placeholder">🚗</div>
+            <div class="work-caption">
+              <h3>Восстановление после ДТП</h3>
+              <span>VW Tiguan • январь 2026</span>
+            </div>
+          </a>
+
+          <a href="work-5.html" class="work-card" data-category="anticor">
+            <div class="img-placeholder">🛡️</div>
+            <div class="work-caption">
+              <h3>Антикоррозийная обработка</h3>
+              <span>Mercedes C-Class • январь 2026</span>
+            </div>
+          </a>
+
+          <a href="work-6.html" class="work-card" data-category="other">
+            <div class="img-placeholder">🚙</div>
+            <div class="work-caption">
+              <h3>Ремонт рамного авто</h3>
+              <span>Toyota Land Cruiser • декабрь 2025</span>
+            </div>
+          </a>
+
         </div>
-      </article>
+      </div>
+
+      <!-- ===== СЕКЦИЯ 2: СТАТЬИ ===== -->
+      <div class="blog-section" id="tab-articles">
+        <h2 class="section-title">Полезные статьи</h2>
+        <p class="section-sub">Советы по кузовному ремонту, покраске и уходу за авто</p>
+
+        <div class="grid grid-works">
+
+          <a href="article-1.html" class="article-card">
+            <div class="img-placeholder">📝</div>
+            <div class="article-caption">
+              <span class="article-date">10 марта 2026</span>
+              <h3>Как понять, что пора менять пороги</h3>
+              <p>Признаки коррозии и когда уже нужна переварка, а не косметика</p>
+            </div>
+          </a>
+
+          <a href="article-2.html" class="article-card">
+            <div class="img-placeholder">📝</div>
+            <div class="article-caption">
+              <span class="article-date">2 марта 2026</span>
+              <h3>Антикор: когда делать и почему не поздно весной</h3>
+              <p>Разбираем, как антикоррозийка продлевает жизнь кузову на 5–7 лет</p>
+            </div>
+          </a>
+
+          <a href="article-3.html" class="article-card">
+            <div class="img-placeholder">📝</div>
+            <div class="article-caption">
+              <span class="article-date">20 февраля 2026</span>
+              <h3>Что такое геометрия кузова и зачем её проверять</h3>
+              <p>Как деформация кузова влияет на управляемость и износ шин</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ===== СЕКЦИЯ 3: НОВОСТИ ===== -->
+      <div class="blog-section" id="tab-news">
+        <h2 class="section-title">Новости сервиса</h2>
+        <p class="section-sub">Акции, обновления оборудования и события</p>
+
+        <div class="grid grid-works">
+
+          <a href="news-1.html" class="article-card">
+            <div class="img-placeholder">📰</div>
+            <div class="article-caption">
+              <span class="article-date">1 марта 2026</span>
+              <h3>Скидка 15% на антикоррозийную обработку</h3>
+              <p>Весенняя акция для всех клиентов — до конца марта</p>
+            </div>
+          </a>
+
+          <a href="news-2.html" class="article-card">
+            <div class="img-placeholder">📰</div>
+            <div class="article-caption">
+              <span class="article-date">15 февраля 2026</span>
+              <h3>Новое оборудование: обновили стапель</h3>
+              <p>Теперь восстанавливаем геометрию ещё точнее и быстрее</p>
+            </div>
+          </a>
+
+          <a href="news-3.html" class="article-card">
+            <div class="img-placeholder">📰</div>
+            <div class="article-caption">
+              <span class="article-date">1 февраля 2026</span>
+              <h3>Расширили покрасочную камеру</h3>
+              <p>Теперь можем красить внедорожники и микроавтобусы целиком</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
 
     </div>
   </section>
+
 </main>
 
 <footer class="footer">
