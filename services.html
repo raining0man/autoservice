@@ -38,8 +38,10 @@
   </section>
 
   <section class="section">
-    <div class="container" id="servicesContainer">
-      <p style="text-align:center;color:var(--text-muted);padding:2rem;">Загрузка услуг…</p>
+    <div class="container">
+      <div class="grid grid-services" id="servicesGrid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка услуг…</p>
+      </div>
     </div>
   </section>
 
@@ -60,15 +62,17 @@
     </div>
     <div>
       <h4>Контакты</h4>
-      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
-      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
+      <p>📞 <a href="tel:+79043331024" data-contact="phoneLink">+7 (904) 333-10-24</a></p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru" data-contact="emailLink">auto98geometry@yandex.ru</a></p>
+      <p>📍 <span data-contact="address">Сабировская ул., 41В, Санкт-Петербург</span></p>
     </div>
     <div>
       <h4>Режим работы</h4>
-      <p>Пн–Пт: 9:00 – 19:00</p>
-      <p>Сб: 10:00 – 16:00</p>
-      <p>Вс: выходной</p>
+      <div data-contact="workHours">
+        <p>Пн–Пт: 9:00 – 19:00</p>
+        <p>Сб: 10:00 – 16:00</p>
+        <p>Вс: выходной</p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -82,29 +86,47 @@
   fetch('data/services.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
-      const container = document.getElementById('servicesContainer');
+      const grid = document.getElementById('servicesGrid');
       const services = data.items || [];
       if (!services.length) {
-        container.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:2rem;">Услуг пока нет.</p>';
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Услуг пока нет.</p>';
         return;
       }
-      container.innerHTML = services.map(s => {
+
+      grid.innerHTML = services.map(s => {
+        // Фото или эмодзи
+        let imageBlock;
+        if (s.image) {
+          imageBlock = `
+            <div class="service-image">
+              <img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}" loading="lazy">
+              <div class="icon-badge">${escapeHtml(s.icon || '🔧')}</div>
+            </div>`;
+        } else {
+          imageBlock = `
+            <div class="service-image">
+              <div class="img-placeholder">${escapeHtml(s.icon || '🔧')}</div>
+              <div class="icon-badge">${escapeHtml(s.icon || '🔧')}</div>
+            </div>`;
+        }
+
         const items = (s.listItems || []).map(item =>
           `<li>${escapeHtml(item)}</li>`
         ).join('');
+
         return `
-          <div class="service-category">
-            <div class="service-category-head">
-              <div class="service-cat-icon">${escapeHtml(s.icon || '🔧')}</div>
-              <h2>${escapeHtml(s.title)}</h2>
+          <div class="service-card">
+            ${imageBlock}
+            <div class="service-body">
+              <h3>${escapeHtml(s.title)}</h3>
+              <ul class="service-items">${items}</ul>
+              <a href="contacts.html" class="btn btn-primary btn-block">${escapeHtml(s.buttonText || 'Записаться')}</a>
             </div>
-            <ul class="service-list">${items}</ul>
-            <a href="contacts.html" class="btn btn-primary">${escapeHtml(s.buttonText || 'Записаться')}</a>
           </div>`;
       }).join('');
     })
     .catch(() => {
-      document.getElementById('servicesContainer').innerHTML = '<p style="text-align:center;color:var(--danger);padding:2rem;">Не удалось загрузить услуги</p>';
+      document.getElementById('servicesGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--danger);padding:2rem;">Не удалось загрузить услуги</p>';
     });
 
   function escapeHtml(s) {
