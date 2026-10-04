@@ -130,10 +130,19 @@ ul { padding-left: 1.2rem; }
 .img-placeholder.small { aspect-ratio: 16/10; font-size: 2.4rem; border-bottom: 1px solid var(--border); }
 .img-placeholder.large { aspect-ratio: 16/9; font-size: 4rem; border-radius: 12px; border-style: dashed; }
 
-/* ===== РАБОТЫ ===== */
+/* ===== РАБОТЫ (карточки в блоге и на главной) ===== */
 .work-card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: 0.25s; }
 .work-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow); }
 .work-card:hover .img-placeholder { background: linear-gradient(135deg, var(--accent-soft), var(--card)); }
+.work-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-alt);
+  transition: transform 0.35s;
+}
+.work-card:hover img { transform: scale(1.05); }
 .work-caption { padding: 1rem 1.1rem 1.2rem; }
 .work-caption h3 { font-size: 1rem; margin-bottom: 0.25rem; }
 .work-caption span { font-size: 0.85rem; color: var(--text-muted); }
@@ -308,11 +317,25 @@ ul { padding-left: 1.2rem; }
   gap: 0.75rem;
   margin: 0 0 2.5rem;
 }
-.article-gallery .img-placeholder { aspect-ratio: 4/3; border-radius: 12px; }
-.article-gallery .img-placeholder:first-child {
+.article-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  aspect-ratio: 4/3;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  display: block;
+  transition: transform 0.3s;
+}
+.article-gallery img:hover { transform: scale(1.02); }
+.article-gallery img:first-child {
   grid-column: 1 / -1;
   aspect-ratio: 16/9;
 }
+
+/* Одиночное фото — растянуть на всю ширину */
+.article-gallery.single img:first-child { aspect-ratio: 16/9; }
 
 /* ===== О СЕРВИСЕ ===== */
 .about-text { font-size: 1.05rem; line-height: 1.75; }
