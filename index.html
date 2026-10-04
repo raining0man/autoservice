@@ -207,7 +207,7 @@
   <div class="container footer-grid">
     <div>
       <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
-      <p class="footer-text" data-contact="footerText">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
     </div>
     <div>
       <h4>Контакты</h4>
@@ -231,119 +231,69 @@
 
 <script src="js/script.js"></script>
 <script>
-// Загрузка работ
+// Работы
 (function initHomeWorks() {
   fetch('data/works.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       const grid = document.getElementById('worksGrid');
       const items = (data.items || []).sort((a, b) => b.id - a.id).slice(0, 6);
-      if (!items.length) {
-        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Работ пока нет.</p>';
-        return;
-      }
+      if (!items.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Работ пока нет.</p>'; return; }
       grid.innerHTML = items.map(w => {
         const img = w.images && w.images[0]
           ? `<img src="${w.images[0]}" alt="${escapeHtml(w.title)}" loading="lazy">`
           : `<div class="img-placeholder">📐</div>`;
-        return `
-          <a href="work.html?id=${w.id}" class="work-card">
-            ${img}
-            <div class="work-caption">
-              <h3>${escapeHtml(w.title)}</h3>
-              <span>${escapeHtml(w.car)} • ${escapeHtml((w.date || '').toLowerCase())}</span>
-            </div>
-          </a>`;
+        return `<a href="work.html?id=${w.id}" class="work-card">${img}<div class="work-caption"><h3>${escapeHtml(w.title)}</h3><span>${escapeHtml(w.car)} • ${escapeHtml((w.date || '').toLowerCase())}</span></div></a>`;
       }).join('');
     })
-    .catch(() => {
-      document.getElementById('worksGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>';
-    });
-  function escapeHtml(s) {
-    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
+    .catch(() => { document.getElementById('worksGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>'; });
+  function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 })();
 
-// Загрузка услуг (первые 6 позиций)
+// Услуги (с фото)
 (function initHomeServices() {
   fetch('data/services.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       const grid = document.getElementById('servicesGrid');
       const services = data.items || [];
-      if (!services.length) {
-        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Услуг пока нет.</p>';
-        return;
-      }
-
-      // Собираем все пункты всех услуг в один список, показываем первые 6
-      const flat = [];
-      services.forEach(s => {
-        (s.listItems || []).forEach(item => {
-          flat.push({
-            icon: s.icon || '🔧',
-            title: item,
-            category: s.title
-          });
-        });
-      });
-
-      grid.innerHTML = flat.slice(0, 6).map(x => `
-        <div class="service-card">
-          <div class="img-placeholder small">${escapeHtml(x.icon)}</div>
-          <h3>${escapeHtml(x.title)}</h3>
-          <p>${escapeHtml(x.category)}</p>
-          <div class="service-footer" style="justify-content:flex-end;">
-            <a href="services.html" class="btn btn-small">Подробнее</a>
-          </div>
-        </div>
-      `).join('');
+      if (!services.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Услуг пока нет.</p>'; return; }
+      grid.innerHTML = services.map(s => {
+        let imageBlock;
+        if (s.image) {
+          imageBlock = `<div class="service-image"><img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}" loading="lazy"><div class="icon-badge">${escapeHtml(s.icon || '🔧')}</div></div>`;
+        } else {
+          imageBlock = `<div class="service-image"><div class="img-placeholder">${escapeHtml(s.icon || '🔧')}</div><div class="icon-badge">${escapeHtml(s.icon || '🔧')}</div></div>`;
+        }
+        const items = (s.listItems || []).slice(0, 5).map(item => `<li>${escapeHtml(item)}</li>`).join('');
+        const more = (s.listItems || []).length > 5 ? `<li style="color:var(--accent);">+ ещё ${s.listItems.length - 5}</li>` : '';
+        return `<div class="service-card">${imageBlock}<div class="service-body"><h3>${escapeHtml(s.title)}</h3><ul class="service-items">${items}${more}</ul><a href="services.html" class="btn btn-primary btn-block">Подробнее</a></div></div>`;
+      }).join('');
     })
-    .catch(() => {
-      document.getElementById('servicesGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>';
-    });
-  function escapeHtml(s) {
-    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
+    .catch(() => { document.getElementById('servicesGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>'; });
+  function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 })();
 
-// Загрузка товаров (первые 6)
+// Товары (с фото)
 (function initHomeProducts() {
   fetch('data/products.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       const grid = document.getElementById('productsGrid');
       const items = (data.items || []).slice(0, 6);
-      if (!items.length) {
-        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Товаров пока нет.</p>';
-        return;
-      }
+      if (!items.length) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Товаров пока нет.</p>'; return; }
       grid.innerHTML = items.map(p => {
-        const img = p.image
-          ? `<img src="${p.image}" alt="${escapeHtml(p.title)}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;">`
-          : `<div class="img-placeholder">${escapeHtml(p.icon || '📦')}</div>`;
-        return `
-          <div class="product-card">
-            ${img}
-            <div class="product-body">
-              <h3>${escapeHtml(p.title)}</h3>
-              <p class="product-desc">${escapeHtml(p.description)}</p>
-              <div class="product-footer" style="justify-content:flex-end;">
-                <a href="contacts.html" class="btn btn-small">Оставить заявку</a>
-              </div>
-            </div>
-          </div>`;
+        let imageBlock;
+        if (p.image) {
+          imageBlock = `<div class="product-image"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy"><div class="icon-badge">${escapeHtml(p.icon || '📦')}</div></div>`;
+        } else {
+          imageBlock = `<div class="product-image"><div class="img-placeholder">${escapeHtml(p.icon || '📦')}</div><div class="icon-badge">${escapeHtml(p.icon || '📦')}</div></div>`;
+        }
+        return `<div class="product-card">${imageBlock}<div class="product-body"><h3>${escapeHtml(p.title)}</h3><p class="product-desc">${escapeHtml(p.description)}</p><div class="product-footer"><a href="contacts.html" class="btn btn-primary btn-small">Оставить заявку</a></div></div></div>`;
       }).join('');
     })
-    .catch(() => {
-      document.getElementById('productsGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>';
-    });
-  function escapeHtml(s) {
-    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
+    .catch(() => { document.getElementById('productsGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Не удалось загрузить.</p>'; });
+  function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 })();
 
 // Политика
@@ -353,19 +303,14 @@
     if (!section) return;
     if (window.location.hash === '#privacy') {
       section.style.display = 'block';
-      document.querySelectorAll('main > section:not(#privacy)').forEach(s => {
-        s.style.display = 'none';
-      });
+      document.querySelectorAll('main > section:not(#privacy)').forEach(s => { s.style.display = 'none'; });
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
     } else {
       section.style.display = 'none';
-      document.querySelectorAll('main > section:not(#privacy)').forEach(s => {
-        s.style.display = '';
-      });
+      document.querySelectorAll('main > section:not(#privacy)').forEach(s => { s.style.display = ''; });
     }
   }
-  window.addEventListener('hashchange', showPrivacyIfReady);
-  function showPrivacyIfReady() { showPrivacyIfHash(); }
+  window.addEventListener('hashchange', showPrivacyIfHash);
   showPrivacyIfHash();
 })();
 </script>
