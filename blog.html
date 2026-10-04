@@ -47,10 +47,9 @@
         <button class="blog-tab" data-tab="tab-news">Новости</button>
       </div>
 
-      <!-- СЕКЦИЯ: НАШИ РАБОТЫ -->
       <div class="blog-section active" id="tab-works">
         <h2 class="section-title">Наши работы</h2>
-        <p class="section-sub">Отчёты о выполненных ремонтах — кликните, чтобы посмотреть подробнее</p>
+        <p class="section-sub">Отчёты о выполненных ремонтах</p>
 
         <div class="filter-tabs" id="workFilters">
           <button class="filter-btn active" data-filter="all">Все</button>
@@ -65,20 +64,18 @@
         </div>
       </div>
 
-      <!-- СЕКЦИЯ: СТАТЬИ -->
       <div class="blog-section" id="tab-articles">
         <h2 class="section-title">Полезные статьи</h2>
         <p class="section-sub">Советы по кузовному ремонту, покраске и уходу за авто</p>
-        <div class="grid grid-works" id="articlesGrid">
+        <div class="grid grid-works">
           <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Статьи появятся здесь совсем скоро.</p>
         </div>
       </div>
 
-      <!-- СЕКЦИЯ: НОВОСТИ -->
       <div class="blog-section" id="tab-news">
         <h2 class="section-title">Новости сервиса</h2>
         <p class="section-sub">Акции, обновления оборудования и события</p>
-        <div class="grid grid-works" id="newsGrid">
+        <div class="grid grid-works">
           <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Новости появятся здесь совсем скоро.</p>
         </div>
       </div>
@@ -97,7 +94,8 @@
     <div>
       <h4>Контакты</h4>
       <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>📍 Сабировская ул., 41В</p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
+      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
     </div>
     <div>
       <h4>Режим работы</h4>
@@ -106,15 +104,14 @@
       <p>Вс: выходной</p>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+  <div class="footer-bottom">
+    © 2026 Авто Геометрия. Все права защищены. | <a href="privacy.html" style="color:var(--accent);">Политика обработки персональных данных</a>
+  </div>
 </footer>
 
 <script src="js/script.js"></script>
 <script>
-// ================= ЗАГРУЗКА РАБОТ ИЗ data/works.json =================
 (function initBlog() {
-
-  // Вкладки
   document.querySelectorAll('.blog-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.blog-tab').forEach(t => t.classList.remove('active'));
@@ -124,18 +121,15 @@
     });
   });
 
-  // Загрузка работ
   fetch('data/works.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
       const grid = document.getElementById('worksGrid');
       const items = (data.items || []).sort((a, b) => b.id - a.id);
-
       if (!items.length) {
         grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Работ пока нет.</p>';
         return;
       }
-
       grid.innerHTML = items.map(w => {
         const img = w.images && w.images[0]
           ? `<img src="${w.images[0]}" alt="${escapeHtml(w.title)}" loading="lazy">`
@@ -150,7 +144,6 @@
           </a>`;
       }).join('');
 
-      // Фильтр
       document.querySelectorAll('#workFilters .filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const filter = btn.dataset.filter;
@@ -158,11 +151,8 @@
           btn.classList.add('active');
           grid.querySelectorAll('.work-card').forEach(card => {
             const cat = card.dataset.category;
-            if (filter === 'all' || cat === filter) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
+            if (filter === 'all' || cat === filter) card.classList.remove('hidden');
+            else card.classList.add('hidden');
           });
         });
       });
