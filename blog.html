@@ -41,20 +41,18 @@
   <section class="section">
     <div class="container">
 
-      <!-- Вкладки блога -->
       <div class="blog-tabs">
         <button class="blog-tab active" data-tab="tab-works">Наши работы</button>
         <button class="blog-tab" data-tab="tab-articles">Статьи</button>
         <button class="blog-tab" data-tab="tab-news">Новости</button>
       </div>
 
-      <!-- ===== СЕКЦИЯ 1: НАШИ РАБОТЫ ===== -->
+      <!-- СЕКЦИЯ: НАШИ РАБОТЫ -->
       <div class="blog-section active" id="tab-works">
         <h2 class="section-title">Наши работы</h2>
         <p class="section-sub">Отчёты о выполненных ремонтах — кликните, чтобы посмотреть подробнее</p>
 
-        <!-- Фильтр по видам работ -->
-        <div class="filter-tabs">
+        <div class="filter-tabs" id="workFilters">
           <button class="filter-btn active" data-filter="all">Все</button>
           <button class="filter-btn" data-filter="body">Кузовной ремонт</button>
           <button class="filter-btn" data-filter="paint">Покраска</button>
@@ -62,130 +60,26 @@
           <button class="filter-btn" data-filter="other">Прочие работы</button>
         </div>
 
-        <div class="grid grid-works">
-
-          <a href="work-1.html" class="work-card" data-category="body">
-            <img src="img/works/work-1-1.jpg" alt="Восстановление геометрии BMW 3 Series" loading="lazy">
-            <div class="work-caption">
-              <h3>Восстановление геометрии на стапеле</h3>
-              <span>BMW 3 Series • март 2026</span>
-            </div>
-          </a>
-
-          <a href="work-2.html" class="work-card" data-category="body">
-            <div class="img-placeholder">🔨</div>
-            <div class="work-caption">
-              <h3>Переварка порогов и арок</h3>
-              <span>Toyota Camry • февраль 2026</span>
-            </div>
-          </a>
-
-          <a href="work-3.html" class="work-card" data-category="paint">
-            <div class="img-placeholder">🎨</div>
-            <div class="work-caption">
-              <h3>Покраска элемента</h3>
-              <span>Kia Rio • февраль 2026</span>
-            </div>
-          </a>
-
-          <a href="work-4.html" class="work-card" data-category="body">
-            <div class="img-placeholder">🚗</div>
-            <div class="work-caption">
-              <h3>Восстановление после ДТП</h3>
-              <span>VW Tiguan • январь 2026</span>
-            </div>
-          </a>
-
-          <a href="work-5.html" class="work-card" data-category="anticor">
-            <div class="img-placeholder">🛡️</div>
-            <div class="work-caption">
-              <h3>Антикоррозийная обработка</h3>
-              <span>Mercedes C-Class • январь 2026</span>
-            </div>
-          </a>
-
-          <a href="work-6.html" class="work-card" data-category="other">
-            <div class="img-placeholder">🚙</div>
-            <div class="work-caption">
-              <h3>Ремонт рамного авто</h3>
-              <span>Toyota Land Cruiser • декабрь 2025</span>
-            </div>
-          </a>
-
+        <div class="grid grid-works" id="worksGrid">
+          <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка работ…</p>
         </div>
       </div>
 
-      <!-- ===== СЕКЦИЯ 2: СТАТЬИ ===== -->
+      <!-- СЕКЦИЯ: СТАТЬИ -->
       <div class="blog-section" id="tab-articles">
         <h2 class="section-title">Полезные статьи</h2>
         <p class="section-sub">Советы по кузовному ремонту, покраске и уходу за авто</p>
-
-        <div class="grid grid-works">
-
-          <a href="article-1.html" class="article-card">
-            <div class="img-placeholder">📝</div>
-            <div class="article-caption">
-              <span class="article-date">10 марта 2026</span>
-              <h3>Как понять, что пора менять пороги</h3>
-              <p>Признаки коррозии и когда уже нужна переварка, а не косметика</p>
-            </div>
-          </a>
-
-          <a href="article-2.html" class="article-card">
-            <div class="img-placeholder">📝</div>
-            <div class="article-caption">
-              <span class="article-date">2 марта 2026</span>
-              <h3>Антикор: когда делать и почему не поздно весной</h3>
-              <p>Разбираем, как антикоррозийка продлевает жизнь кузову на 5–7 лет</p>
-            </div>
-          </a>
-
-          <a href="article-3.html" class="article-card">
-            <div class="img-placeholder">📝</div>
-            <div class="article-caption">
-              <span class="article-date">20 февраля 2026</span>
-              <h3>Что такое геометрия кузова и зачем её проверять</h3>
-              <p>Как деформация кузова влияет на управляемость и износ шин</p>
-            </div>
-          </a>
-
+        <div class="grid grid-works" id="articlesGrid">
+          <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Статьи появятся здесь совсем скоро.</p>
         </div>
       </div>
 
-      <!-- ===== СЕКЦИЯ 3: НОВОСТИ ===== -->
+      <!-- СЕКЦИЯ: НОВОСТИ -->
       <div class="blog-section" id="tab-news">
         <h2 class="section-title">Новости сервиса</h2>
         <p class="section-sub">Акции, обновления оборудования и события</p>
-
-        <div class="grid grid-works">
-
-          <a href="news-1.html" class="article-card">
-            <div class="img-placeholder">📰</div>
-            <div class="article-caption">
-              <span class="article-date">1 марта 2026</span>
-              <h3>Скидка 15% на антикоррозийную обработку</h3>
-              <p>Весенняя акция для всех клиентов — до конца марта</p>
-            </div>
-          </a>
-
-          <a href="news-2.html" class="article-card">
-            <div class="img-placeholder">📰</div>
-            <div class="article-caption">
-              <span class="article-date">15 февраля 2026</span>
-              <h3>Новое оборудование: обновили стапель</h3>
-              <p>Теперь восстанавливаем геометрию ещё точнее и быстрее</p>
-            </div>
-          </a>
-
-          <a href="news-3.html" class="article-card">
-            <div class="img-placeholder">📰</div>
-            <div class="article-caption">
-              <span class="article-date">1 февраля 2026</span>
-              <h3>Расширили покрасочную камеру</h3>
-              <p>Теперь можем красить внедорожники и микроавтобусы целиком</p>
-            </div>
-          </a>
-
+        <div class="grid grid-works" id="newsGrid">
+          <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Новости появятся здесь совсем скоро.</p>
         </div>
       </div>
 
@@ -216,5 +110,74 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+// ================= ЗАГРУЗКА РАБОТ ИЗ data/works.json =================
+(function initBlog() {
+
+  // Вкладки
+  document.querySelectorAll('.blog-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.blog-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.blog-section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Загрузка работ
+  fetch('data/works.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('worksGrid');
+      const items = (data.items || []).sort((a, b) => b.id - a.id);
+
+      if (!items.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Работ пока нет.</p>';
+        return;
+      }
+
+      grid.innerHTML = items.map(w => {
+        const img = w.images && w.images[0]
+          ? `<img src="${w.images[0]}" alt="${escapeHtml(w.title)}" loading="lazy">`
+          : `<div class="img-placeholder">📐</div>`;
+        return `
+          <a href="work.html?id=${w.id}" class="work-card" data-category="${w.category}">
+            ${img}
+            <div class="work-caption">
+              <h3>${escapeHtml(w.title)}</h3>
+              <span>${escapeHtml(w.car)} • ${escapeHtml((w.date || '').toLowerCase())}</span>
+            </div>
+          </a>`;
+      }).join('');
+
+      // Фильтр
+      document.querySelectorAll('#workFilters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          document.querySelectorAll('#workFilters .filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          grid.querySelectorAll('.work-card').forEach(card => {
+            const cat = card.dataset.category;
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })
+    .catch(err => {
+      document.getElementById('worksGrid').innerHTML =
+        '<p style="grid-column:1/-1;text-align:center;color:var(--danger);padding:2rem;">Не удалось загрузить работы</p>';
+      console.error(err);
+    });
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
 </body>
 </html>
