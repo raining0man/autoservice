@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Работа — Авто Геометрия</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">ГЕО<span>МЕТРИЯ</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Главная</a></li>
+      <li><a href="services.html" class="nav-link">Услуги</a></li>
+      <li><a href="parts.html" class="nav-link">Запчасти</a></li>
+      <li><a href="blog.html" class="nav-link active">Блог</a></li>
+      <li><a href="about.html" class="nav-link">О сервисе</a></li>
+      <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему"><span class="theme-icon">🌙</span></button>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="workContainer">
+  <div class="container" style="padding:6rem 1.25rem;text-align:center;">
+    <p style="color:var(--text-muted);">Загрузка…</p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
+      <p>📍 Сабировская ул., 41В</p>
+    </div>
+    <div>
+      <h4>Режим работы</h4>
+      <p>Пн–Пт: 9:00 – 19:00</p>
+      <p>Сб: 10:00 – 16:00</p>
+      <p>Вс: выходной</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+(function initWork() {
+  const CATEGORY_LABELS = {
+    body: 'Кузовной ремонт',
+    paint: 'Покраска',
+    anticor: 'Антикор',
+    other: 'Прочие работы'
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = Number(params.get('id'));
+  const container = document.getElementById('workContainer');
+
+  if (!id) {
+    container.innerHTML = '<div class="container container-narrow" style="padding:6rem 1.25rem;text-align:center;"><p style="color:var(--text-muted);">Работа не найдена. <a href="blog.html" style="color:var(--accent);">Вернуться в блог</a></p></div>';
+    return;
+  }
+
+  fetch('data/works.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const work = (data.items || []).find(w => w.id === id);
+      if (!work) {
+        container.innerHTML = '<div class="container container-narrow" style="padding:6rem 1.25rem;text-align:center;"><p style="color:var(--text-muted);">Работа не найдена. <a href="blog.html" style="color:var(--accent);">Вернуться в блог</a></p></div>';
+        return;
+      }
+
+      document.title = work.title + ' — Авто Геометрия';
+
+      const gallery = (work.images && work.images.length)
+        ? work.images.map((src, i) =>
+            `<img src="${src}" alt="${escapeHtml(work.title)} — фото ${i + 1}" loading="lazy">`
+          ).join('')
+        : '<div class="img-placeholder large">📸 Фото скоро</div>';
+
+      const descBlocks = (work.description || '').split(/\n\s*\n/)
+        .map(b => `<p>${escapeHtml(b).replace(/\n/g, '<br>')}</p>`)
+        .join('');
+
+      container.innerHTML = `
+        <div class="container">
+          <div class="breadcrumbs">
+            <a href="index.html">Главная</a><span>/</span>
+            <a href="blog.html">Блог</a><span>/</span>
+            <a href="blog.html">Наши работы</a><span>/</span>
+            ${escapeHtml(work.title)}
+          </div>
+        </div>
+
+        <section class="article-hero">
+          <div class="container container-narrow">
+            <span class="article-date">${escapeHtml(work.date || '')}</span>
+            <h1>${escapeHtml(work.title)}</h1>
+            <p class="article-meta">${escapeHtml(work.car)} • ${escapeHtml(CATEGORY_LABELS[work.category] || 'Работа')}</p>
+          </div>
+        </section>
+
+        <section class="section" style="padding-top:0;">
+          <div class="container container-narrow">
+            <div class="article-gallery">${gallery}</div>
+            <div class="article-content">${descBlocks}</div>
+          </div>
+        </section>
+
+        <section class="section section-alt">
+          <div class="container container-narrow">
+            <h2 class="section-title">Записаться на ремонт</h2>
+            <p class="section-sub">Оставьте заявку — мы перезвоним в течение 15 минут</p>
+            <form class="contact-form" id="bookingForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Ваше имя *</label>
+                  <input type="text" id="name" name="name" placeholder="Иван" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Телефон *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" name="comment" rows="4" placeholder="Марка авто, описание задачи"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+              <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+            </form>
+          </div>
+        </section>`;
+    })
+    .catch(err => {
+      container.innerHTML = '<div class="container" style="padding:6rem 1.25rem;text-align:center;"><p style="color:var(--danger);">Не удалось загрузить работу</p></div>';
+      console.error(err);
+    });
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
+</body>
+</html>
