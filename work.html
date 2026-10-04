@@ -44,7 +44,8 @@
     <div>
       <h4>Контакты</h4>
       <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>📍 Сабировская ул., 41В</p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
+      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
     </div>
     <div>
       <h4>Режим работы</h4>
@@ -53,17 +54,17 @@
       <p>Вс: выходной</p>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Авто Геометрия. Все права защищены.</div>
+  <div class="footer-bottom">
+    © 2026 Авто Геометрия. Все права защищены. | <a href="privacy.html" style="color:var(--accent);">Политика обработки персональных данных</a>
+  </div>
 </footer>
 
 <script src="js/script.js"></script>
 <script>
 (function initWork() {
   const CATEGORY_LABELS = {
-    body: 'Кузовной ремонт',
-    paint: 'Покраска',
-    anticor: 'Антикор',
-    other: 'Прочие работы'
+    body: 'Кузовной ремонт', paint: 'Покраска',
+    anticor: 'Антикор', other: 'Прочие работы'
   };
 
   const params = new URLSearchParams(window.location.search);
@@ -83,7 +84,6 @@
         container.innerHTML = '<div class="container container-narrow" style="padding:6rem 1.25rem;text-align:center;"><p style="color:var(--text-muted);">Работа не найдена. <a href="blog.html" style="color:var(--accent);">Вернуться в блог</a></p></div>';
         return;
       }
-
       document.title = work.title + ' — Авто Геометрия';
 
       const gallery = (work.images && work.images.length)
@@ -93,19 +93,16 @@
         : '<div class="img-placeholder large">📸 Фото скоро</div>';
 
       const descBlocks = (work.description || '').split(/\n\s*\n/)
-        .map(b => `<p>${escapeHtml(b).replace(/\n/g, '<br>')}</p>`)
-        .join('');
+        .map(b => `<p>${escapeHtml(b).replace(/\n/g, '<br>')}</p>`).join('');
 
       container.innerHTML = `
         <div class="container">
           <div class="breadcrumbs">
             <a href="index.html">Главная</a><span>/</span>
             <a href="blog.html">Блог</a><span>/</span>
-            <a href="blog.html">Наши работы</a><span>/</span>
             ${escapeHtml(work.title)}
           </div>
         </div>
-
         <section class="article-hero">
           <div class="container container-narrow">
             <span class="article-date">${escapeHtml(work.date || '')}</span>
@@ -113,14 +110,12 @@
             <p class="article-meta">${escapeHtml(work.car)} • ${escapeHtml(CATEGORY_LABELS[work.category] || 'Работа')}</p>
           </div>
         </section>
-
         <section class="section" style="padding-top:0;">
           <div class="container container-narrow">
             <div class="article-gallery">${gallery}</div>
             <div class="article-content">${descBlocks}</div>
           </div>
         </section>
-
         <section class="section section-alt">
           <div class="container container-narrow">
             <h2 class="section-title">Записаться на ремонт</h2>
@@ -137,14 +132,36 @@
                 </div>
               </div>
               <div class="form-group">
+                <label for="service">Услуга</label>
+                <select id="service" name="service">
+                  <option value="">— Выберите услугу —</option>
+                  <option>Кузовной ремонт</option>
+                  <option>Восстановление геометрии</option>
+                  <option>Покраска авто</option>
+                  <option>Антикоррозийная обработка</option>
+                  <option>Удаление вмятин</option>
+                  <option>Подбор запчастей</option>
+                  <option>Другое</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="comment">Комментарий</label>
                 <textarea id="comment" name="comment" rows="4" placeholder="Марка авто, описание задачи"></textarea>
               </div>
+              <div class="form-group form-consent">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="consent" name="consent" required>
+                  <span>Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой обработки персональных данных</a></span>
+                </label>
+              </div>
               <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
-              <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+              <p class="form-note">Мы не передаём ваши данные третьим лицам.</p>
             </form>
           </div>
         </section>`;
+
+      // Форма создана динамически — навешиваем обработчик заново
+      if (window.initBookingFormDynamic) window.initBookingFormDynamic();
     })
     .catch(err => {
       container.innerHTML = '<div class="container" style="padding:6rem 1.25rem;text-align:center;"><p style="color:var(--danger);">Не удалось загрузить работу</p></div>';
