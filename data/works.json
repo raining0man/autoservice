@@ -23,6 +23,17 @@
         "img/works/work-2-1.jpg",
         "img/works/work-2-2.jpg"
       ]
+    },
+    {
+      "id": 3,
+      "category": "body",
+      "title": "Переварка порогов Land Rover Discovery 3",
+      "car": "Land Rover Discovery 3",
+      "date": "Август 2026",
+      "description": "Полная переварка порогов с лужением оловом на внедорожнике Land Rover Discovery 3\n\n1) Снятие навесных подножек для оценки состояния порогов\n2) Удаление коррозии",
+      "images": [
+        "img/works/work-3-1.jpg"
+      ]
     }
   ]
 }
