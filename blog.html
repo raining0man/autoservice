@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Блог — АвтоМастер</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">🔧 АВТО<span>МАСТЕР</span></a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="nav-link">Главная</a></li>
+      <li><a href="index.html#services" class="nav-link">Услуги</a></li>
+      <li><a href="index.html#products" class="nav-link">Запчасти</a></li>
+      <li><a href="blog.html" class="nav-link active">Блог</a></li>
+      <li><a href="index.html#about" class="nav-link">О сервисе</a></li>
+      <li><a href="index.html#booking" class="nav-link">Контакты</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Блог АвтоМастер</h1>
+      <p>Наши работы и полезные советы по уходу за автомобилем</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-narrow">
+
+      <h2 class="section-title">Наши работы</h2>
+      <p class="section-sub">Подробные отчёты о выполненных ремонтах</p>
+
+      <!-- Работа 1 -->
+      <article class="work-post" id="work-1">
+        <div class="img-placeholder large">🛠️</div>
+        <div class="work-post-body">
+          <span class="work-date">Март 2026</span>
+          <h2>Капитальный ремонт двигателя BMW 3 Series</h2>
+          <p>Клиент обратился с жалобой на повышенный расход масла и сизый дым из выхлопной трубы. После диагностики выявили износ маслосъёмных колпачков и залегание поршневых колец.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul>
+            <li>Полная разборка двигателя</li>
+            <li>Расточка блока цилиндров</li>
+            <li>Замена поршневой группы и коленвала</li>
+            <li>Замена всех прокладок и сальников</li>
+            <li>Сборка и обкатка</li>
+          </ul>
+          <p><strong>Срок:</strong> 7 рабочих дней. <strong>Стоимость:</strong> 185 000 ₽. Гарантия — 1 год.</p>
+        </div>
+      </article>
+
+      <!-- Работа 2 -->
+      <article class="work-post" id="work-2">
+        <div class="img-placeholder large">⚙️</div>
+        <div class="work-post-body">
+          <span class="work-date">Февраль 2026</span>
+          <h2>Замена подвески Toyota Camry</h2>
+          <p>Стук в передней части при проезде неровностей и увод авто в сторону. Диагностика показала износ амортизаторов, шаровых опор и сайлентблоков.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul>
+            <li>Замена передних и задних амортизаторов</li>
+            <li>Замена шаровых опор и рулевых наконечников</li>
+            <li>Замена сайлентблоков рычагов</li>
+            <li>Развал-схождение</li>
+          </ul>
+          <p><strong>Срок:</strong> 1 день. <strong>Стоимость:</strong> 42 000 ₽.</p>
+        </div>
+      </article>
+
+      <!-- Работа 3 -->
+      <article class="work-post" id="work-3">
+        <div class="img-placeholder large">🛑</div>
+        <div class="work-post-body">
+          <span class="work-date">Февраль 2026</span>
+          <h2>Ремонт тормозной системы Kia Rio</h2>
+          <p>Скрип при торможении и вибрация на педали. Износ передних тормозных дисков и колодок.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul>
+            <li>Замена передних тормозных дисков и колодок</li>
+            <li>Замена тормозной жидкости</li>
+            <li>Прокачка тормозной системы</li>
+            <li>Проверка суппортов и направляющих</li>
+          </ul>
+          <p><strong>Срок:</strong> 3 часа. <strong>Стоимость:</strong> 14 500 ₽.</p>
+        </div>
+      </article>
+
+      <!-- Работа 4 -->
+      <article class="work-post" id="work-4">
+        <div class="img-placeholder large">❄️</div>
+        <div class="work-post-body">
+          <span class="work-date">Январь 2026</span>
+          <h2>Ремонт кондиционера VW Tiguan</h2>
+          <p>Кондиционер не холодил, из дефлекторов шёл тёплый воздух. Утечка фреона через уплотнительные кольца.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul>
+            <li>Диагностика системы под давлением</li>
+            <li>Замена уплотнительных колец</li>
+            <li>Замена осушителя</li>
+            <li>Вакуумирование и заправка фреоном R134a</li>
+            <li>Антибактериальная чистка</li>
+          </ul>
+          <p><strong>Срок:</strong> 4 часа. <strong>Стоимость:</strong> 12 800 ₽.</p>
+        </div>
+      </article>
+
+      <!-- Работа 5 -->
+      <article class="work-post" id="work-5">
+        <div class="img-placeholder large">⚡</div>
+        <div class="work-post-body">
+          <span class="work-date">Январь 2026</span>
+          <h2>Диагностика электрики Mercedes C-Class</h2>
+          <p>Периодически не запускался двигатель, на панели загорались случайные ошибки. Поиск короткого замыкания в проводке.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul>
+            <li>Компьютерная диагностика всех блоков</li>
+            <li>Прозвонка жгутов проводки</li>
+            <li>Замена повреждённого участка проводки</li>
+            <li>Перепрошивка блока управления</li>
+          </ul>
+          <p><strong>Срок:</strong> 2 дня. <strong>Стоимость:</strong> 28 000 ₽.</p>
+        </div>
+      </article>
+
+      <!-- Работа 6 -->
+      <article class="work-post" id="work-6">
+        <div class="img-placeholder large">🎨</div>
+        <div class="work-post-body">
+          <span class="work-date">Декабрь 2025</span>
+          <h2>Кузовной ремонт и покраска Lada Vesta</h2>
+          <p>После ДТП повреждены переднее крыло, бампер и капот. Требовалась рихтовка и полная покраска деталей.</p>
+          <p><strong>Что сделали:</strong></p>
+          <ul>
+            <li>Разборка и дефектовка</li>
+            <li>Рихтовка крыла и капота</li>
+            <li>Замена бампера</li>
+            <li>Шпаклёвка, грунтовка, покраска</li>
+            <li>Полировка и сборка</li>
+          </ul>
+          <p><strong>Срок:</strong> 5 дней. <strong>Стоимость:</strong> 68 000 ₽.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="logo">🔧 АВТО<span>МАСТЕР</span></div>
+      <p class="footer-text">Честный ремонт авто с 2009 года. Гарантия на работы — 1 год.</p>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <p>📞 +7 (999) 123-45-67</p>
+      <p>✉️ info@avtomaster.ru</p>
+      <p>📍 г. Москва, ул. Автозаводская, 15</p>
+    </div>
+    <div>
+      <h4>Режим работы</h4>
+      <p>Пн–Сб: 9:00 – 21:00</p>
+      <p>Вс: 10:00 – 18:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 АвтоМастер. Все права защищены.
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
