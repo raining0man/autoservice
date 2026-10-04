@@ -1,4 +1,4 @@
-// Тема
+// ==================== ТЕМА ====================
 (function initTheme() {
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
@@ -22,7 +22,7 @@
   }
 })();
 
-// Бургер-меню
+// ==================== БУРГЕР-МЕНЮ ====================
 (function initBurger() {
   const burger = document.getElementById('burger');
   const menu = document.getElementById('navMenu');
@@ -39,11 +39,19 @@
 })();
 
 // ==================== ФОРМА ЗАЯВКИ ====================
+// Отправляем заявку на backend админки (Layero).
+// Backend сохраняет в JSON и отправляет в Telegram.
 const ADMIN_API = 'https://autogeometryadmin.layero.app';
 
-(function initBookingForm() {
-  const form = document.getElementById('bookingForm');
-  if (!form) return;
+/**
+ * Привязывает обработчик submit к форме.
+ * Защита от повторной привязки — через флаг _attached.
+ * Функция универсальна: работает и для форм, созданных динамически
+ * (например, на work.html, где форма рендерится после загрузки работ).
+ */
+function attachBookingForm(form) {
+  if (!form || form._attached) return;
+  form._attached = true;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -54,16 +62,15 @@ const ADMIN_API = 'https://autogeometryadmin.layero.app';
     const comment = form.querySelector('#comment')?.value.trim() || '';
     const consent = form.querySelector('#consent')?.checked || false;
 
+    // Валидация
     if (!name || !phone) {
       showToast('Заполните имя и телефон');
       return;
     }
-
     if (!consent) {
       showToast('Подтвердите согласие на обработку данных');
       return;
     }
-
     const phoneDigits = phone.replace(/\D/g, '');
     if (phoneDigits.length < 10) {
       showToast('Проверьте номер телефона');
@@ -100,16 +107,28 @@ const ADMIN_API = 'https://autogeometryadmin.layero.app';
       if (btn) { btn.disabled = false; btn.textContent = originalText; }
     }
   });
+}
+
+// Глобальная функция для повторной привязки.
+// Используется на work.html после динамического рендера формы.
+window.initBookingFormDynamic = () => {
+  attachBookingForm(document.getElementById('bookingForm'));
+};
+
+// Автопривязка при загрузке страницы (для форм, которые уже есть в HTML)
+(function initBookingForm() {
+  const form = document.getElementById('bookingForm');
+  if (form) attachBookingForm(form);
 })();
 
-// Кнопки "Заказать"
+// ==================== КНОПКИ "ЗАКАЗАТЬ" ====================
 (function initCart() {
   document.querySelectorAll('.js-add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => showToast('Заявка отправлена — мы свяжемся с вами'));
   });
 })();
 
-// Уведомление
+// ==================== УВЕДОМЛЕНИЕ ====================
 function showToast(message) {
   let toast = document.querySelector('.toast');
   if (!toast) {
@@ -123,7 +142,7 @@ function showToast(message) {
   toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Подсветка активной ссылки при скролле
+// ==================== ПОДСВЕТКА АКТИВНОЙ ССЫЛКИ ПРИ СКРОЛЛЕ ====================
 (function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const links = document.querySelectorAll('.nav-link[href^="#"]');
