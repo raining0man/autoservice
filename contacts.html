@@ -13,7 +13,7 @@
 
 <header class="header">
   <nav class="nav container">
-    <a href="index.html" class="logo">ГЕО<span>МЕТРИЯ</span></a>
+    <a href="index.html" class="logo">ГЕОМЕТРИЯ</a>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="nav-link">Главная</a></li>
       <li><a href="services.html" class="nav-link">Услуги</a></li>
@@ -139,8 +139,8 @@
 <footer class="footer">
   <div class="container footer-grid">
     <div>
-      <div class="logo">ГЕО<span>МЕТРИЯ</span></div>
-      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто.</p>
+      <div class="logo">ГЕОМЕТРИЯ</div>
+      <p class="footer-text">Кузовной ремонт, покраска и восстановление геометрии авто. Работаем с 2009 года.</p>
     </div>
     <div>
       <h4>Контакты</h4>
@@ -168,37 +168,26 @@
   fetch('data/contacts.json?v=' + Date.now())
     .then(r => r.json())
     .then(c => {
-      // Телефон
       document.querySelectorAll('[data-contact="phoneLink"]').forEach(el => {
         el.textContent = c.phone || el.textContent;
         if (c.phoneRaw) el.setAttribute('href', 'tel:' + c.phoneRaw);
       });
-
-      // Email
       document.querySelectorAll('[data-contact="emailLink"]').forEach(el => {
         el.textContent = c.email || el.textContent;
         if (c.email) el.setAttribute('href', 'mailto:' + c.email);
       });
-
-      // Адрес
       document.querySelectorAll('[data-contact="address"]').forEach(el => {
         el.textContent = c.address || el.textContent;
       });
-
-      // Часы работы
       document.querySelectorAll('[data-contact="workHours"]').forEach(el => {
         if (Array.isArray(c.workHours) && c.workHours.length) {
           el.innerHTML = c.workHours.map(h => `<p>${escapeHtml(h)}</p>`).join('');
         }
       });
-
-      // Мессенджеры
       const wa = document.querySelector('[data-contact="whatsapp"]');
       if (wa && c.whatsapp) wa.setAttribute('href', c.whatsapp);
       const tg = document.querySelector('[data-contact="telegram"]');
       if (tg && c.telegram) tg.setAttribute('href', c.telegram);
-
-      // Карта
       const map = document.getElementById('mapFrame');
       if (map && c.mapSrc) map.setAttribute('src', c.mapSrc);
     })
