@@ -36,8 +36,17 @@ ul { padding-left: 1.2rem; }
   border-bottom: 1px solid var(--border);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; gap: 1rem; }
-.logo { font-size: 1.15rem; font-weight: 800; letter-spacing: 0.5px; white-space: nowrap; font-style: italic; text-transform: uppercase; }
-.logo span { color: var(--accent); }
+.logo {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: 0.2s;
+}
+.logo:hover { color: var(--accent); }
 .nav-menu { display: flex; gap: 0.4rem; list-style: none; padding: 0; }
 .nav-link { padding: 0.55rem 0.85rem; border-radius: 8px; font-weight: 500; font-size: 0.95rem; transition: 0.2s; white-space: nowrap; }
 .nav-link:hover { background: var(--bg-alt); }
@@ -283,7 +292,7 @@ ul { padding-left: 1.2rem; }
 }
 .product-card.hidden { display: none; }
 
-/* ===== СТАРЫЕ КАРТОЧКИ УСЛУГ (для главной, до перехода на новую вёрстку) ===== */
+/* ===== СТАРЫЕ КАРТОЧКИ УСЛУГ ===== */
 .service-footer-old { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.1rem 1.2rem; gap: 0.6rem; }
 .price { font-weight: 700; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
 
