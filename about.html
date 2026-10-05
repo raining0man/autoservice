@@ -58,10 +58,6 @@
           <div class="about-stat-num">12</div>
           <div class="about-stat-label">месяцев гарантии</div>
         </div>
-        <div class="about-stat">
-          <div class="about-stat-num">100%</div>
-          <div class="about-stat-label">соблюдение геометрии</div>
-        </div>
       </div>
     </div>
   </section>
@@ -71,49 +67,8 @@
       <h2 class="section-title">Наше оборудование</h2>
       <p class="section-sub">Техническое оснащение, которое позволяет делать работу точно и быстро</p>
 
-      <div class="equipment-grid">
-        <div class="equipment-item">
-          <div class="img-placeholder">🛠️</div>
-          <div class="equipment-caption">
-            <h4>Стапель</h4>
-            <p>Профессиональный стенд для восстановления геометрии кузова</p>
-          </div>
-        </div>
-        <div class="equipment-item">
-          <div class="img-placeholder">🎨</div>
-          <div class="equipment-caption">
-            <h4>Покрасочная камера</h4>
-            <p>Специализированная камера с контролем температуры и вентиляции</p>
-          </div>
-        </div>
-        <div class="equipment-item">
-          <div class="img-placeholder">🔧</div>
-          <div class="equipment-caption">
-            <h4>Сварочные аппараты</h4>
-            <p>Полуавтоматы и точечная сварка для кузовных работ</p>
-          </div>
-        </div>
-        <div class="equipment-item">
-          <div class="img-placeholder">📏</div>
-          <div class="equipment-caption">
-            <h4>Измерительная система</h4>
-            <p>Компьютерный контроль геометрии кузова</p>
-          </div>
-        </div>
-        <div class="equipment-item">
-          <div class="img-placeholder">🪚</div>
-          <div class="equipment-caption">
-            <h4>Инструмент для кузова</h4>
-            <p>Полный набор профессионального инструмента для правки металла</p>
-          </div>
-        </div>
-        <div class="equipment-item">
-          <div class="img-placeholder">🚿</div>
-          <div class="equipment-caption">
-            <h4>Камера для антикора</h4>
-            <p>Специализированная зона для антикоррозийной обработки</p>
-          </div>
-        </div>
+      <div class="equipment-grid" id="equipmentGrid">
+        <p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Загрузка…</p>
       </div>
     </div>
   </section>
@@ -135,15 +90,17 @@
     </div>
     <div>
       <h4>Контакты</h4>
-      <p>📞 <a href="tel:+79043331024">+7 (904) 333-10-24</a></p>
-      <p>✉️ <a href="mailto:auto98geometry@yandex.ru">auto98geometry@yandex.ru</a></p>
-      <p>📍 Сабировская ул., 41В, Санкт-Петербург</p>
+      <p>📞 <a href="tel:+79043331024" data-contact="phoneLink">+7 (904) 333-10-24</a></p>
+      <p>✉️ <a href="mailto:auto98geometry@yandex.ru" data-contact="emailLink">auto98geometry@yandex.ru</a></p>
+      <p>📍 <span data-contact="address">Сабировская ул., 41В, Санкт-Петербург</span></p>
     </div>
     <div>
       <h4>Режим работы</h4>
-      <p>Пн–Пт: 9:00 – 19:00</p>
-      <p>Сб: 10:00 – 16:00</p>
-      <p>Вс: выходной</p>
+      <div data-contact="workHours">
+        <p>Пн–Пт: 9:00 – 19:00</p>
+        <p>Сб: 10:00 – 16:00</p>
+        <p>Вс: выходной</p>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -152,5 +109,44 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+(function initEquipment() {
+  fetch('data/equipment.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('equipmentGrid');
+      const items = (data.items || []).sort((a, b) => a.id - b.id);
+      if (!items.length) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:2rem;">Оборудование пока не добавлено.</p>';
+        return;
+      }
+      grid.innerHTML = items.map(eq => {
+        let imageBlock;
+        if (eq.image) {
+          imageBlock = `<img src="${escapeHtml(eq.image)}" alt="${escapeHtml(eq.title)}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">`;
+        } else {
+          imageBlock = `<div class="img-placeholder">${escapeHtml(eq.icon || '🛠️')}</div>`;
+        }
+        return `
+          <div class="equipment-item">
+            ${imageBlock}
+            <div class="equipment-caption">
+              <h4>${escapeHtml(eq.title)}</h4>
+              <p>${escapeHtml(eq.description || '')}</p>
+            </div>
+          </div>`;
+      }).join('');
+    })
+    .catch(err => {
+      document.getElementById('equipmentGrid').innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--danger);padding:2rem;">Не удалось загрузить</p>';
+      console.error(err);
+    });
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+})();
+</script>
 </body>
 </html>
